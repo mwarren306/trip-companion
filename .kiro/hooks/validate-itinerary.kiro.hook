@@ -1,0 +1,10 @@
+{
+  "name": "Validate itinerary data",
+  "description": "Runs the data validator whenever itinerary.json changes and reports any leg missing steps, duration, verified, or source.",
+  "version": "1",
+  "when": { "type": "fileEdited", "patterns": ["data/itinerary.json"] },
+  "then": {
+    "type": "askAgent",
+    "prompt": "data/itinerary.json changed. Run `node tools/validate-data.mjs` and report the result. If any leg is missing steps, duration, verified, or source, list each by id and do not mark the task complete until they are fixed. Do not invent transport facts to fill gaps — flag them for Matt instead."
+  }
+}

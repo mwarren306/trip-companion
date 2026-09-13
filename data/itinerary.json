@@ -1,0 +1,80 @@
+{
+  "trip": "Rome to Venice",
+  "start": "2026-09-16",
+  "end": "2026-09-25",
+  "generated": "FIXTURE",
+  "days": [
+    {
+      "n": 1,
+      "iso": "2026-09-16",
+      "date": "Wed 16 Sep",
+      "title": "Fixture day — placeholder only",
+      "place": "Rome",
+      "items": [
+        {
+          "kind": "stop",
+          "id": "1a",
+          "t": "morning",
+          "name": "Fixture Stop One",
+          "la": 41.9028,
+          "lo": 12.4964,
+          "cat": "sight",
+          "status": "plain",
+          "note": "Placeholder stop for the FIXTURE itinerary. Not real trip content.",
+          "directions": "w"
+        },
+        {
+          "kind": "leg",
+          "id": "1a-1b",
+          "mode": "walk",
+          "summary": "Short walk",
+          "duration": "6 min",
+          "distance": "0.4 km",
+          "verified": "2026-09-13",
+          "source": "estimate",
+          "steps": [
+            "Placeholder walking leg. Distance and time are a straight-line estimate, not a verified route."
+          ]
+        },
+        {
+          "kind": "stop",
+          "id": "1b",
+          "t": "12:00",
+          "name": "Fixture Stop Two",
+          "la": 41.8902,
+          "lo": 12.4922,
+          "cat": "food",
+          "status": "plain",
+          "note": "Placeholder stop for the FIXTURE itinerary. Not real trip content.",
+          "directions": "w"
+        },
+        {
+          "kind": "leg",
+          "id": "1b-1c",
+          "mode": "walk",
+          "summary": "Short walk",
+          "duration": "9 min",
+          "distance": "0.7 km",
+          "verified": "2026-09-13",
+          "source": "estimate",
+          "steps": [
+            "Placeholder walking leg. Distance and time are a straight-line estimate, not a verified route."
+          ]
+        },
+        {
+          "kind": "stop",
+          "id": "1c",
+          "t": "afternoon",
+          "name": "Fixture Stop Three",
+          "la": 41.8986,
+          "lo": 12.4769,
+          "cat": "stay",
+          "status": "plain",
+          "note": "Placeholder stop for the FIXTURE itinerary. Not real trip content.",
+          "directions": "w"
+        }
+      ]
+    }
+  ],
+  "todo": []
+}
