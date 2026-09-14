@@ -7,9 +7,13 @@
 // Stop conditional content (task 8), the compact leg connector (task 9),
 // actions (task 10), and check-off (task 11) slot into the seams left here.
 
-import { isoDate, sumMoveTime } from "../lib/dates.js";
-import { categoryIcon, modeIcon } from "./icons.js";
+import { isoDate, sumMoveTime, daysSince } from "../lib/dates.js";
+import { categoryIcon, modeIcon, lockGlyph } from "./icons.js";
 import { renderLockAffordance } from "./lock.js";
+
+// A leg whose facts were verified more than this many days ago is flagged in the
+// warn colour rather than dim (spec 02, req 3.2).
+const VERIFIED_STALE_DAYS = 60;
 
 /** Categories the design system defines a tint/fill token for. */
 const KNOWN_CATS = new Set(["sight", "food", "stay", "move", "open"]);
@@ -312,24 +316,26 @@ function renderActions(stop, ctx) {
 }
 
 /**
- * A transport leg in the timeline. Task 7 renders it in order so the thread
- * passes through it; the compact connector detail (mode icon, bold duration,
- * one summary fact) and the expansion seam are task 9. Kept minimal here.
+ * A transport leg in the timeline (spec 02). The compact connector — mode icon,
+ * bold duration, one summary fact, plus `depart → arrive` and a lock glyph when
+ * present — is the ≥44px expand control (aria-expanded). Tapping it toggles the
+ * expanded instruction block, which grows inside this same `<li>` so the stops
+ * above never move (req 2.3) and the gutter thread stays continuous.
  * @param {object} leg
- * @param {object} _ctx reserved for task 9
+ * @param {object} ctx shared context (ctx.today, ctx.secrets)
  */
-function renderLeg(leg, _ctx) {
+function renderLeg(leg, ctx) {
   const li = document.createElement("li");
   li.className = "timeline-item leg";
   li.dataset.mode = leg.mode;
+  li.dataset.id = leg.id;
+  li.dataset.expanded = "false";
 
-  // Compact connector (design-system.md): mode icon, bold duration, then a
-  // comma and the one summary fact. `distance` is deliberately NOT shown here —
-  // it belongs to the expanded view (spec 02). The mode icon is decorative
-  // (duration + summary carry meaning) so it is aria-hidden via icons.js. The
-  // `.leg-connector` element is the seam the expanded view grows from.
-  const connector = document.createElement("div");
+  // Compact connector is a button so the whole row is one tap target.
+  const connector = document.createElement("button");
+  connector.type = "button";
   connector.className = "leg-connector";
+  connector.setAttribute("aria-expanded", "false");
 
   const icon = document.createElement("span");
   icon.className = "leg-icon";
@@ -344,8 +350,8 @@ function renderLeg(leg, _ctx) {
   duration.textContent = leg.duration;
   text.append(duration);
 
-  // Comma separator as a real text node (not CSS) so duration and summary never
-  // concatenate. Summary is rendered only when present — never `distance`.
+  // One summary fact, comma-separated (real text node, never concatenated).
+  // `distance` is deliberately never shown in the compact form.
   if (leg.summary) {
     text.append(document.createTextNode(", "));
     const summary = document.createElement("span");
@@ -354,9 +360,136 @@ function renderLeg(leg, _ctx) {
     text.append(summary);
   }
 
+  // depart → arrive in tabular numerals (req 1.2), only when timed.
+  if (leg.depart && leg.arrive) {
+    const times = document.createElement("span");
+    times.className = "leg-times";
+    times.textContent = `${leg.depart} → ${leg.arrive}`;
+    text.append(times);
+  }
+
   connector.append(text);
+
+  // Lock glyph when a booking reference is attached (req 1.3).
+  if (leg.hasSecret) {
+    const lock = document.createElement("span");
+    lock.className = "leg-lock-glyph";
+    lock.append(lockGlyph());
+    connector.append(lock);
+  }
+
   li.append(connector);
+
+  // Expanded panel, built once and toggled (req 2.1, 2.3). One leg open at a
+  // time: opening this one closes any sibling that is open.
+  const panel = renderExpandedLeg(leg, ctx);
+  li.append(panel);
+
+  connector.addEventListener("click", () => {
+    const open = li.dataset.expanded === "true";
+    if (!open) collapseOpenSiblings(li);
+    li.dataset.expanded = String(!open);
+    connector.setAttribute("aria-expanded", String(!open));
+  });
+
   return li;
+}
+
+/** Collapse any other expanded leg in the same timeline (one open at a time). */
+function collapseOpenSiblings(current) {
+  const list = current.parentElement;
+  if (!list) return;
+  for (const li of list.children) {
+    if (li !== current && li.classList?.has("leg") && li.dataset.expanded === "true") {
+      li.dataset.expanded = "false";
+      li.querySelector(".leg-connector")?.setAttribute("aria-expanded", "false");
+    }
+  }
+}
+
+/**
+ * The expanded instruction block for a leg (req 2.1). Renders, in this order and
+ * only when present: line/operator; depart → arrive; steps (numbered); buy;
+ * cost; validate; platform; fallback; verified + source (dim, or warn when the
+ * facts are more than 60 days old, req 3.2). When the leg has a booking
+ * reference, the spec-05 lock affordance is mounted at the foot (req 2.2).
+ * Values are shown verbatim — nothing here computes a fare, time, or platform
+ * (req 3.3).
+ * @param {object} leg
+ * @param {object} ctx
+ * @returns {HTMLElement}
+ */
+function renderExpandedLeg(leg, ctx) {
+  const panel = document.createElement("div");
+  panel.className = "leg-detail";
+  panel.setAttribute("role", "region");
+
+  // line / operator
+  if (leg.line || leg.operator) {
+    const head = document.createElement("p");
+    head.className = "leg-line";
+    head.textContent = [leg.line, leg.operator].filter(Boolean).join(", ");
+    panel.append(head);
+  }
+
+  // depart → arrive (full, tabular)
+  if (leg.depart && leg.arrive) {
+    const times = document.createElement("p");
+    times.className = "leg-detail-times";
+    times.textContent = `${leg.depart} → ${leg.arrive}`;
+    panel.append(times);
+  }
+
+  // steps — numbered instruction list
+  if (Array.isArray(leg.steps) && leg.steps.length) {
+    const ol = document.createElement("ol");
+    ol.className = "leg-steps";
+    for (const step of leg.steps) {
+      const item = document.createElement("li");
+      item.textContent = step;
+      ol.append(item);
+    }
+    panel.append(ol);
+  }
+
+  // buy / cost / validate / platform / fallback — labelled rows, only when present
+  appendDetailRow(panel, "Buy", leg.buy);
+  appendDetailRow(panel, "Cost", leg.cost);
+  appendDetailRow(panel, "Validate", leg.validate);
+  appendDetailRow(panel, "Platform", leg.platform);
+  appendDetailRow(panel, "Fallback", leg.fallback);
+
+  // verified + source — dim, or warn when stale (> 60 days). Verbatim source.
+  if (leg.verified || leg.source) {
+    const prov = document.createElement("p");
+    prov.className = "leg-provenance";
+    const age = daysSince(leg.verified, ctx?.today ?? new Date());
+    const stale = age != null && age > VERIFIED_STALE_DAYS;
+    if (stale) prov.classList.add("is-stale");
+    const label = leg.verified ? `Checked ${leg.verified}` : "";
+    const src = leg.source ? `${label ? " — " : ""}${leg.source}` : "";
+    prov.textContent = `${label}${src}`;
+    panel.append(prov);
+  }
+
+  // Booking reference (req 2.2) — spec 05's affordance, reused unchanged.
+  if (leg.hasSecret) {
+    panel.append(renderLockAffordance(leg, ctx));
+  }
+
+  return panel;
+}
+
+/** Append a `Label: value` detail row, only when the value is present. */
+function appendDetailRow(panel, label, value) {
+  if (!value) return;
+  const row = document.createElement("p");
+  row.className = "leg-detail-row";
+  const dt = document.createElement("span");
+  dt.className = "leg-detail-label";
+  dt.textContent = `${label}: `;
+  row.append(dt, document.createTextNode(value));
+  panel.append(row);
 }
 
 /* ------------------------------------------------------------------ chips */

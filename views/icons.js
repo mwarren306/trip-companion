@@ -161,3 +161,16 @@ export function categoryIcon(cat) {
 export function modeIcon(mode) {
   return (MODE[mode] ?? MODE_TRAIN)();
 }
+
+/**
+ * A small padlock glyph for the compact leg row when a booking reference is
+ * attached (req 1.3). Decorative — the meaning is carried by the expanded lock
+ * affordance's text — so it is aria-hidden like the others.
+ * @returns {SVGSVGElement}
+ */
+export function lockGlyph() {
+  return svg([
+    ["rect", { x: "5", y: "11", width: "14", height: "9", rx: "2" }], // body
+    ["path", { d: "M8 11V8a4 4 0 0 1 8 0v3" }], // shackle
+  ]);
+}
