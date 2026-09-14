@@ -7,10 +7,13 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
   <meta name="theme-color" content="#F5F7F9" />
-  <!-- Start the two heavy fetches at HTML parse instead of waiting for CSS to
-       parse (font) or app.js to execute (data). Flattens the critical chain. -->
+  <!-- Preload the font (immutable, cache-first) to flatten the critical chain.
+       itinerary.json is deliberately NOT preloaded: the preloaded response was
+       being satisfied from the HTTP cache (GitHub Pages max-age=600) and reused
+       before the request reached the service worker, so stale-while-revalidate
+       never ran and DATA_UPDATED never fired. The data is small and the SW
+       serves it from its own cache anyway. -->
   <link rel="preload" href="fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="data/itinerary.json" as="fetch" type="application/json" crossorigin />
   <link rel="stylesheet" href="styles/tokens.css" />
   <link rel="stylesheet" href="styles/app.css" />
 </head>

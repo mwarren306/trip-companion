@@ -10,7 +10,7 @@
 // Pure helpers (cacheName, classifyRequest, activate cleanup) are exported so
 // they can be unit-tested in Node; the SW event wiring only runs in a worker.
 
-const VERSION = "v1"; // bump on every deploy (app-code cache key)
+const VERSION = "v2"; // bump on every deploy (app-code cache key)
 const CACHE = `trip-${VERSION}`;
 
 // Precache list (req 1.1). CORE must all cache or install fails; OPTIONAL is
@@ -166,21 +166,29 @@ async function cacheFirst(req) {
 async function staleWhileRevalidate(req, event) {
   const cache = await caches.open(CACHE);
   const cached = await cache.match(req);
+  // Clone the cached response NOW for the byte comparison, before it is handed
+  // to the page (a Response body can only be read once).
+  const cachedForCompare = cached ? cached.clone() : null;
 
   const revalidate = (async () => {
     try {
-      const fresh = await fetch(req, { cache: "no-cache" });
+      // cache:"reload" bypasses the browser HTTP cache so the SW's background
+      // fetch always hits the network — not GitHub Pages' 600s max-age copy.
+      // Without this the revalidation could keep re-reading a stale HTTP-cached
+      // response and never detect the change.
+      const fresh = await fetch(req, { cache: "reload" });
       if (!fresh || !fresh.ok) return;
-      const changed = await bytesDiffer(cached, fresh.clone());
-      await cache.put(req, fresh.clone());
-      if (cached && changed) await postDataUpdated(req.url);
+      const freshForCompare = fresh.clone();
+      await cache.put(req, fresh); // store the fresh copy
+      const changed = await bytesDiffer(cachedForCompare, freshForCompare);
+      if (cachedForCompare && changed) await postDataUpdated(req.url);
     } catch {
       /* offline or fetch error — keep the cached copy */
     }
   })();
 
   if (event && typeof event.waitUntil === "function") event.waitUntil(revalidate);
-  return cached || revalidate.then(() => cache.match(req)).then((r) => r || fetch(req));
+  return cached || revalidate.then(() => cache.match(req)).then((r) => r || fetch(req, { cache: "reload" }));
 }
 
 /** Cheap change check: compare length then bytes of two response bodies. */

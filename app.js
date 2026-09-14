@@ -28,11 +28,14 @@ const LAST_GOOD_KEY = "lastGoodItinerary";
  * @returns {Promise<object>} parsed itinerary
  */
 async function loadItinerary() {
-  // Default cache mode so the <link rel="preload" as="fetch"> in index.html is
-  // reused instead of triggering a second network request, and the HTTP/SW
-  // cache can serve it on repeat loads. Freshness is owned by the service
-  // worker's cache strategy (spec 07), not by forcing a network round-trip here.
-  const res = await fetch("data/itinerary.json");
+  // The service worker owns freshness for data/*.json (stale-while-revalidate):
+  // it serves its cached copy instantly and revalidates in the background. This
+  // request must reach the SW rather than being answered by the browser HTTP
+  // cache — so there is no preload of this URL (see index.html), and we set
+  // cache:"no-store" on the page fetch so a controlled page always hits the SW
+  // (and an uncontrolled first load goes to network) instead of the 600s HTTP
+  // cache. The SW, not this fetch, decides cached-vs-fresh.
+  const res = await fetch("data/itinerary.json", { cache: "no-store" });
   if (!res.ok) throw new Error(`itinerary fetch failed: ${res.status}`);
   const data = await res.json();
   rememberGenerated(data.generated);
