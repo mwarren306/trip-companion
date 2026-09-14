@@ -194,8 +194,72 @@ async function boot() {
   render(ctx, view, dayN);
 }
 
+/**
+ * Register the service worker and wire the "Update available — reload" control
+ * (spec 07). The control appears on either trigger: a new app-code build waiting
+ * (a waiting worker) or an edited data file the SW revalidated (a DATA_UPDATED
+ * message). Best-effort — a registration failure never blocks or errors the app,
+ * and nothing is logged in the production path.
+ */
+function initServiceWorker() {
+  if (!("serviceWorker" in navigator)) return;
+  let waitingWorker = null;
+
+  navigator.serviceWorker.register("sw.js").then((reg) => {
+    // A worker already waiting when the page loads.
+    if (reg.waiting && navigator.serviceWorker.controller) {
+      waitingWorker = reg.waiting;
+      showUpdatePrompt();
+    }
+    // A new worker found and finished installing while we are controlled.
+    reg.addEventListener("updatefound", () => {
+      const nw = reg.installing;
+      if (!nw) return;
+      nw.addEventListener("statechange", () => {
+        if (nw.state === "installed" && navigator.serviceWorker.controller) {
+          waitingWorker = nw;
+          showUpdatePrompt();
+        }
+      });
+    });
+  }).catch(() => {
+    // SW unsupported or registration blocked — the app runs online as normal.
+  });
+
+  // Data revalidation found a changed data/*.json (no waiting worker needed).
+  navigator.serviceWorker.addEventListener("message", (e) => {
+    if (e.data && e.data.type === "DATA_UPDATED") showUpdatePrompt();
+  });
+
+  // Reload once when the new worker takes control.
+  let reloading = false;
+  navigator.serviceWorker.addEventListener("controllerchange", () => {
+    if (reloading) return;
+    reloading = true;
+    location.reload();
+  });
+
+  function showUpdatePrompt() {
+    if (document.getElementById("update-prompt")) return; // already shown
+    const bar = document.createElement("button");
+    bar.id = "update-prompt";
+    bar.type = "button";
+    bar.className = "update-prompt";
+    bar.textContent = "Update available — reload";
+    bar.addEventListener("click", () => {
+      if (waitingWorker) {
+        waitingWorker.postMessage({ type: "SKIP_WAITING" }); // reload on controllerchange
+      } else {
+        location.reload(); // data-only update: fresh copy already revalidated into cache
+      }
+    });
+    document.body.append(bar);
+  }
+}
+
 // Auto-boot in the browser only. Under a test runner (no DOM) the module is
 // imported for its exported helpers, so we skip boot to avoid a fetch/DOM call.
 if (typeof document !== "undefined") {
   boot();
+  initServiceWorker();
 }

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!-- App icon: jade (--go #0B7A75) rounded square with a white numbered pin,
+       matching the design system's numbered-pin motif. -->
+  <rect width="512" height="512" rx="112" fill="#0B7A75"/>
+  <!-- Map pin: teardrop body + inner disc -->
+  <path d="M256 120
+           a108 108 0 0 1 108 108
+           c0 78 -108 172 -108 172
+           s-108 -94 -108 -172
+           a108 108 0 0 1 108 -108 z"
+        fill="#ffffff"/>
+  <circle cx="256" cy="228" r="60" fill="#0B7A75"/>
+  <!-- Numeral 1 in white, tabular feel -->
+  <text x="256" y="256" text-anchor="middle" dominant-baseline="central"
+        font-family="Helvetica, Arial, sans-serif" font-size="86" font-weight="700"
+        fill="#ffffff">1</text>
+</svg>

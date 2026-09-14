@@ -1,0 +1,14 @@
+{
+  "name": "Rome to Venice",
+  "short_name": "Rome→Venice",
+  "display": "standalone",
+  "start_url": "./",
+  "scope": "./",
+  "background_color": "#F5F7F9",
+  "theme_color": "#0B7A75",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
