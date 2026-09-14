@@ -261,6 +261,17 @@ function initServiceWorker() {
         }
       });
     });
+
+    // iOS standalone PWAs don't reliably check for a new service worker on
+    // their own — a relaunch may reuse the cached sw.js without re-fetching it.
+    // Ask for an update check each time the app returns to the foreground, so a
+    // deploy is noticed promptly (and, when a new worker is found, the
+    // updatefound handler above surfaces the reload prompt). Best-effort.
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "visible") {
+        reg.update().catch(() => {});
+      }
+    });
   }).catch(() => {
     // SW unsupported or registration blocked — the app runs online as normal.
   });
