@@ -95,10 +95,34 @@ function renderRow(todo, ctx) {
   const body = document.createElement("div");
   body.className = "todo-body";
 
+  // Label. When the todo names a `stop`, the label is a link that navigates to
+  // that stop's day and highlights the card (req 6.9); otherwise it is plain
+  // text. The link is a button (in-app navigation, not a URL).
   const label = document.createElement("p");
   label.className = "todo-label";
-  label.textContent = todo.label;
+  const dayN = todo.stop ? dayOfStop(ctx.data, todo.stop) : null;
+  if (todo.stop && dayN != null) {
+    const link = document.createElement("button");
+    link.type = "button";
+    link.className = "todo-link";
+    link.textContent = todo.label;
+    link.addEventListener("click", () => {
+      ctx.navigate("days", dayN, { focusStopId: todo.stop });
+    });
+    label.append(link);
+  } else {
+    label.textContent = todo.label;
+  }
   body.append(label);
+
+  // "when, where" line under the label, before the note (req 6.8). `when` is
+  // always present; `where` is appended with a plain comma when present.
+  if (todo.when) {
+    const meta = document.createElement("p");
+    meta.className = "todo-meta";
+    meta.textContent = todo.where ? `${todo.when}, ${todo.where}` : todo.when;
+    body.append(meta);
+  }
 
   if (todo.note) {
     const note = document.createElement("p");
@@ -159,4 +183,18 @@ function renderForget(el, ctx) {
   const unsub = ctx.secrets.subscribe(render);
   el.addEventListener("view:unmount", unsub, { once: true });
   render();
+}
+
+/**
+ * The day number that contains a given stop id, or null if not found. Used to
+ * turn a todo's `stop` into a navigation target (req 6.9).
+ * @param {object} data itinerary
+ * @param {string} stopId
+ * @returns {?number}
+ */
+function dayOfStop(data, stopId) {
+  for (const day of data.days) {
+    if (day.items.some((i) => i.kind === "stop" && i.id === stopId)) return day.n;
+  }
+  return null;
 }

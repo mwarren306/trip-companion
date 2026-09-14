@@ -122,8 +122,8 @@ function buildContext(data, today) {
     geo, // lib/geo.js — mapsUrl, coordString, copyCoords
     store: createStore(), // lib/store.js — checkmark persistence (local; Supabase sync is spec 06)
     secrets: createSecrets(), // views/lock.js — encrypted booking references (spec 05)
-    navigate(viewName, dayN) {
-      render(ctx, viewName, dayN);
+    navigate(viewName, dayN, opts) {
+      render(ctx, viewName, dayN, opts);
     },
   };
   return ctx;
@@ -135,7 +135,7 @@ function buildContext(data, today) {
  * @param {string} viewName key in VIEWS
  * @param {number} dayN day to render
  */
-function render(ctx, viewName, dayN) {
+function render(ctx, viewName, dayN, opts) {
   const el = document.getElementById("view");
   // Let the outgoing view tear down (unsubscribe from the store, etc.) before
   // its DOM is cleared. Views register cleanup via el.addEventListener(
@@ -145,6 +145,39 @@ function render(ctx, viewName, dayN) {
   ctx.selectedDayN = dayN ?? ctx.selectedDayN;
   const mount = VIEWS[viewName];
   mount(el, ctx);
+  // Optionally scroll to and briefly highlight a stop after the view mounts
+  // (used by a To-sort item's stop link, req 6.9; reused by the map pin, 03).
+  if (opts && opts.focusStopId) focusStop(el, opts.focusStopId);
+}
+
+/**
+ * Scroll a stop card into view and apply a brief highlight. The shared "focus a
+ * stop" behaviour: a To-sort item's stop link (req 6.9) and, later, a map pin
+ * tap (spec 03) both call this via ctx.navigate(..., { focusStopId }). The
+ * highlight is a short-lived CSS class; `prefers-reduced-motion` is respected in
+ * the stylesheet.
+ * @param {HTMLElement} el the view container
+ * @param {string} stopId
+ */
+function focusStop(el, stopId) {
+  const card = el.querySelector(`.stop[data-id="${cssEscapeAttr(stopId)}"]`);
+  if (!card) return;
+  card.scrollIntoView({ block: "center", behavior: "smooth" });
+  card.classList.remove("is-highlighted"); // restart if already applied
+  // Force reflow so re-adding the class re-triggers the animation.
+  void card.offsetWidth;
+  card.classList.add("is-highlighted");
+  card.addEventListener(
+    "animationend",
+    () => card.classList.remove("is-highlighted"),
+    { once: true },
+  );
+}
+
+/** Escape a value for use in a CSS attribute selector. */
+function cssEscapeAttr(s) {
+  if (typeof CSS !== "undefined" && typeof CSS.escape === "function") return CSS.escape(s);
+  return String(s).replace(/["\\]/g, "\\$&");
 }
 
 /**

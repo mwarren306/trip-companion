@@ -92,3 +92,41 @@ test("empty todo shows a single 'Nothing to sort.' line, not an empty list (req 
   const note = dom.view.querySelector(".todo-note");
   assert.equal(note.textContent, "Nothing to sort.");
 });
+
+// --- when / where line + stop link (req 6.8, 6.9) ---------------------------
+
+const dataWithDays = {
+  days: [{ n: 2, iso: "2026-09-17", items: [{ kind: "stop", id: "2e", name: "San Pietro" }] }],
+  todo: [
+    { id: "a1", label: "With when and where", when: "Thu 17 Sep", where: "Rome" },
+    { id: "a2", label: "When only", when: "Before you fly" },
+    { id: "a3", label: "Linked to a stop", when: "Thu 17 Sep", where: "Rome", stop: "2e" },
+  ],
+};
+
+test("renders 'when, where' as a dim line under the label, before the note (req 6.8)", () => {
+  mount(dom.view, { data: dataWithDays, geo, store: createStore(), daysUntilStart: null, navigate() {} });
+  const rows = dom.view.querySelectorAll(".todo-item");
+  assert.equal(rows[0].querySelector(".todo-meta").textContent, "Thu 17 Sep, Rome");
+  // when only → no comma, no where
+  assert.equal(rows[1].querySelector(".todo-meta").textContent, "Before you fly");
+});
+
+test("a todo with a stop renders its label as a link that navigates to the stop's day (req 6.9)", () => {
+  const calls = [];
+  mount(dom.view, {
+    data: dataWithDays, geo, store: createStore(), daysUntilStart: null,
+    navigate: (view, dayN, opts) => calls.push([view, dayN, opts]),
+  });
+  const rows = dom.view.querySelectorAll(".todo-item");
+
+  // a1/a2 have no stop → plain label, no link.
+  assert.equal(rows[0].querySelector(".todo-link"), null);
+  // a3 has stop "2e" (on day 2) → label is a link.
+  const link = rows[2].querySelector(".todo-link");
+  assert.ok(link, "linked todo renders a .todo-link");
+  assert.equal(link.textContent, "Linked to a stop");
+
+  link.click();
+  assert.deepEqual(calls, [["days", 2, { focusStopId: "2e" }]], "navigates to the stop's day with focusStopId");
+});

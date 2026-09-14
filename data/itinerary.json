@@ -2510,55 +2510,76 @@
    "id": "t1",
    "label": "Re-check the Cinque Terre live map",
    "note": "mappe.parconazionale5terre.it — Monterosso–Vernazza partial closure (Ordinanza 77) and any weather alert. Again the morning of the 20th.",
-   "due": "2026-09-14"
+   "due": "2026-09-14",
+   "when": "Sun 20 Sep",
+   "where": "Cinque Terre",
+   "stop": "5a"
   },
   {
    "id": "t2",
    "label": "Decide San Pietro in Vincoli",
    "note": "Closed 12:20–15:00 Thursday. Move to 15:00 before the Capitoline, or drop it.",
-   "due": "2026-09-16"
+   "due": "2026-09-16",
+   "when": "Thu 17 Sep",
+   "where": "Rome",
+   "stop": "2e"
   },
   {
    "id": "t3",
    "label": "Confirm Opera del Duomo Museum Monday hours",
    "note": "Plan says 19:00; Google says 18:00. If 18:00, go straight there from the dome.",
-   "due": "2026-09-20"
+   "due": "2026-09-20",
+   "when": "Mon 21 Sep",
+   "where": "Florence",
+   "stop": "6j"
   },
   {
    "id": "t5",
    "label": "Save every ticket PDF to both phones",
    "note": "St Mark's from Order History, Borghese, Brunelleschi Pass, Uffizi, Accademia, all three Trenitalia PNRs, the park card. Trenitalia treats a lost PNR as no ticket.",
-   "due": "2026-09-15"
+   "due": "2026-09-15",
+   "when": "Before you fly"
   },
   {
    "id": "t6",
    "label": "Buy checked baggage on united.com",
    "note": "Not included in the fare.",
-   "due": "2026-09-14"
+   "due": "2026-09-14",
+   "when": "Before you fly"
   },
   {
    "id": "t7",
    "label": "Download Rick Steves Audio Europe tours on Wi-Fi",
    "note": "Rome: Heart of Rome, Colosseum, Forum, Pantheon, Trastevere, Jewish Ghetto. Vatican set. Florence: Renaissance Walk, Uffizi, Accademia, Bargello, San Marco. Venice: Grand Canal, St Mark's Square, Basilica, Frari.",
-   "due": "2026-09-15"
+   "due": "2026-09-15",
+   "when": "Before you fly"
   },
   {
    "id": "t8",
    "label": "Pack hiking shoes with tread",
    "note": "The park card bans open shoes and smooth soles; rangers check at trailheads.",
-   "due": "2026-09-15"
+   "due": "2026-09-15",
+   "when": "Before you fly",
+   "where": "For Sun 20 Sep, Cinque Terre",
+   "stop": "5b"
   },
   {
    "id": "t9",
    "label": "Strike check the night before each train",
    "note": "scioperi.mit.gov.it. 21 Sep is Emilia-Romagna only as of 13 Sep.",
-   "due": "2026-09-20"
+   "due": "2026-09-20",
+   "when": "Sat 19, Mon 21, Wed 23 Sep",
+   "where": "Every train day",
+   "stop": "6c"
   },
   {
    "id": "t10",
    "label": "Cash for Venice",
-   "note": "Hotel tourist tax (~€16–18), San Rocco (€12 each, cash only), Schiavi, alla Vedova. Italy is card-friendly but these aren't.",
-   "due": "2026-09-22"
+   "note": "Hotel tourist tax (~€16–18), San Rocco (€12 each, cash only), Schiavi. Italy is card-friendly but these aren't.",
+   "due": "2026-09-22",
+   "when": "Wed 23 – Fri 25 Sep",
+   "where": "Venice",
+   "stop": "8d"
   }
  ]
 }

@@ -93,8 +93,20 @@ Rules for legs:
 ## Todo
 
 ```jsonc
-{ "id": "t4", "label": "Call Belforte", "note": "…", "due": "2026-09-18" }   // due optional
+{
+  "id": "t4",
+  "label": "Call Belforte",
+  "note": "…",                 // optional
+  "due": "2026-09-18",         // optional
+  "when": "Thu 17 Sep",        // required — human when this matters ("Before you fly", a date, or a range)
+  "where": "Rome",             // optional — place it applies to
+  "stop": "2e"                 // optional — a Stop id; the label links to that stop's day and scrolls to the card
+}
 ```
+
+`when` is always present; `where` and `stop` are optional. In the To-sort view, `when` and `where`
+render as one dim line under the label (`when, where` — plain comma). When `stop` is set, the label
+is a link into the day view.
 
 ## Trail data — `data/trails.geojson`
 

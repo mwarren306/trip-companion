@@ -350,6 +350,18 @@ main {
   padding-bottom: 12px;
 }
 
+/* Brief highlight when a stop is focused from a To-sort link (req 6.9) or, later,
+   a map pin tap (spec 03). A short go-tint flash on the card; the shared
+   "focus a stop" affordance. Disabled under prefers-reduced-motion (below). */
+.stop.is-highlighted .stop-card {
+  animation: stop-highlight 1600ms ease-out;
+}
+
+@keyframes stop-highlight {
+  0%   { background: var(--go-tint); border-color: var(--go); }
+  100% { background: var(--card); border-color: var(--line); }
+}
+
 /* Stop conditional content ------------------------------------------------ */
 
 /* Status chip (req 4.3): 12px, 4px 10px, 8px radius, status text/bg pair. */
@@ -703,6 +715,31 @@ main {
   letter-spacing: -0.014em;
 }
 
+/* "when, where" line — same dim 13px tabular style as a stop's time (req 6.8). */
+.todo-meta {
+  margin: 2px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--dim);
+}
+
+/* Label-as-link when the todo names a stop (req 6.9). Looks like the label,
+   coloured jade to read as tappable; a real 44px target via padding. */
+.todo-link {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.014em;
+  color: var(--go);
+  text-align: left;
+  cursor: pointer;
+}
+
 .todo-note {
   margin: 2px 0 0;
   font-size: 14.5px;
@@ -717,11 +754,13 @@ main {
   color: var(--open);
 }
 
-.todo-item[data-done="true"] .todo-label {
+.todo-item[data-done="true"] .todo-label,
+.todo-item[data-done="true"] .todo-link {
   text-decoration: line-through;
   color: var(--dim);
 }
 
+.todo-item[data-done="true"] .todo-meta,
 .todo-item[data-done="true"] .todo-note,
 .todo-item[data-done="true"] .todo-due {
   display: none;

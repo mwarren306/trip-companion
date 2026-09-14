@@ -59,6 +59,12 @@ and persist via the store, in the same manner as a stop check-off (see 5.1, 06).
 above the list (consistent with 1.3).
 6.7 WHEN `data.todo` is empty THE SYSTEM SHALL show a single line stating there is nothing to sort,
 rather than an empty list.
+6.8 THE SYSTEM SHALL show each todo item's `when` (always present) and, when present, `where` as a
+line under the label and before the `note`, formatted `when, where` (plain comma, no middle dot),
+in the same dim style as a stop's time.
+6.9 WHEN a todo item has `stop` THE SYSTEM SHALL render its label as a link that navigates to that
+stop's day, scrolls the stop card into view, and briefly highlights it (the same highlight a map
+pin tap uses, spec 03).
 
 ## Acceptance
 - Opens to the correct view for dates before, during, and after the trip (mock the clock).
