@@ -1482,9 +1482,8 @@
      "lo": 11.258112,
      "cat": "sight",
      "status": "plain",
-     "note": "In the pass, walk in. Ghiberti's original Gates of Paradise, Donatello's Magdalene, Michelangelo's Bandini Pietà. Rick rates it above the cathedral. 60–75 minutes.",
-     "directions": "w",
-     "alert": "The plan says open to 19:00. Google's listing shows Monday closing at 18:00. Confirm on the Opera del Duomo site; if 18:00 is right, go straight here from the dome and give it the full hour."
+     "note": "In the pass, walk in. Ghiberti's original Gates of Paradise, Donatello's Magdalene, Michelangelo's Bandini Pietà. Rick rates it above the cathedral. 60–75 minutes. Open to 19:00 Monday, confirmed.",
+     "directions": "w"
     },
     {
      "kind": "leg",
@@ -2513,15 +2512,6 @@
    "when": "Sun 20 Sep",
    "where": "Cinque Terre",
    "stop": "5a"
-  },
-  {
-   "id": "t3",
-   "label": "Confirm Opera del Duomo Museum Monday hours",
-   "note": "Plan says 19:00; Google says 18:00. If 18:00, go straight there from the dome.",
-   "due": "2026-09-20",
-   "when": "Mon 21 Sep",
-   "where": "Florence",
-   "stop": "6j"
   },
   {
    "id": "t5",
