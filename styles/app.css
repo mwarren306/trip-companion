@@ -1,0 +1,644 @@
+/* Shell styles. Colours come only from tokens.css (design-system.md).
+   Scope so far: base/layout, day chips, day header, and the To-sort view.
+   Timeline and component styles arrive with tasks 7–11. */
+
+/* ------------------------------------------------------------------ base */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+h1 {
+  margin: 0;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/* Visible focus on every interactive element (accessibility.md). */
+:focus-visible {
+  outline: 2px solid var(--go);
+  outline-offset: 2px;
+}
+
+/* Content for assistive tech only — removed from the visual layout without
+   hiding it from the accessibility tree (accessibility.md). */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------- layout */
+
+/* Page column: max 600px, centred; full width on phones. */
+header,
+main {
+  width: 100%;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+main {
+  padding: 12px 16px 40px;
+}
+
+/* ------------------------------------------------------------- day chips */
+
+#day-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--page);
+  border-bottom: 1px solid var(--line);
+}
+
+.chips {
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 10px 16px;
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.chips::-webkit-scrollbar {
+  display: none;
+}
+
+.chip {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 6px 14px;
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-pill);
+  background: var(--card);
+  color: var(--ink);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.chip-label {
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Inline "Today" suffix — a pill after the date, on the same line, so every
+   chip keeps the same height. Never relies on colour alone (accessibility.md). */
+.chip-today-cue {
+  font-size: 10.5px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: var(--r-pill);
+  background: var(--go-tint);
+  color: var(--go);
+}
+
+.chip.is-today {
+  border-color: var(--go);
+}
+
+.chip.is-selected {
+  background: var(--go);
+  border-color: var(--go);
+  color: #fff;
+}
+
+/* When today is also selected, keep the suffix legible on the filled chip:
+   invert to a light pill with jade text. */
+.chip.is-selected .chip-today-cue {
+  background: #fff;
+  color: var(--go);
+}
+
+/* ------------------------------------------------------------ day header */
+
+#day-header {
+  padding: 16px 16px 4px;
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--mid);
+}
+
+.day-title {
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: -0.024em;
+  line-height: 1.15;
+}
+
+.progress {
+  margin: 6px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--dim);
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 14px 0 0;
+}
+
+.fact {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-tile);
+  background: var(--card);
+}
+
+.fact dt {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--dim);
+}
+
+.fact dd {
+  margin: 2px 0 0;
+  font-size: 15px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ----------------------------------------------------------- timeline */
+
+/* The timeline is a 30px gutter + content column. The continuous thread is a
+   2px --line-2 line painted as a background of the list itself, centred in the
+   gutter, so it runs unbroken behind every item — including the gap between a
+   stop and the following leg (design decision 4.1). */
+.timeline {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  /* thread: a 2px vertical line centred in the 30px gutter (x = 15px). */
+  background-image: linear-gradient(var(--line-2), var(--line-2));
+  background-repeat: no-repeat;
+  background-position: 14px 0;
+  background-size: 2px 100%;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 30px; /* the gutter the thread sits in */
+}
+
+.timeline-item + .timeline-item {
+  margin-top: 10px;
+}
+
+/* Numbered pin: 28px circle in the gutter, category fill, white number.
+   Sits over the thread. Fill is set per category below. */
+.pin {
+  position: absolute;
+  left: 1px;
+  top: 14px;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--r-pill);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  /* mask the thread behind the circle so it reads as a pin, not a bead. */
+  box-shadow: 0 0 0 3px var(--page);
+}
+
+/* Stop card. */
+.stop-card {
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  background: var(--card);
+}
+
+.stop-head {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+/* Category icon tile: 36px, category tint background, category-colour icon.
+   The inline SVG uses currentColor, so the per-category rules below set colour. */
+.cat-tile {
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--r-tile);
+}
+
+.cat-tile svg {
+  width: 20px;
+  height: 20px;
+}
+
+.stop-heading {
+  min-width: 0;
+}
+
+.stop-time {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--dim);
+}
+
+/* Timed-entry window shown as from–to beside the time (req 4.5). */
+.stop-window {
+  font-weight: 600;
+  color: var(--open);
+}
+
+.stop-name {
+  margin: 1px 0 0;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.014em;
+  line-height: 1.25;
+}
+
+/* Per-category pin fill + tile tint/glyph colour (tokens only). */
+.stop[data-cat="sight"] .pin { background: var(--cat-sight); }
+.stop[data-cat="sight"] .cat-tile { background: var(--cat-sight-tint); color: var(--cat-sight); }
+.stop[data-cat="food"] .pin { background: var(--cat-food); }
+.stop[data-cat="food"] .cat-tile { background: var(--cat-food-tint); color: var(--cat-food); }
+.stop[data-cat="stay"] .pin { background: var(--cat-stay); }
+.stop[data-cat="stay"] .cat-tile { background: var(--cat-stay-tint); color: var(--cat-stay); }
+.stop[data-cat="move"] .pin { background: var(--cat-move); }
+.stop[data-cat="move"] .cat-tile { background: var(--cat-move-tint); color: var(--cat-move); }
+.stop[data-cat="open"] .pin { background: var(--cat-open); }
+.stop[data-cat="open"] .cat-tile { background: var(--cat-open-tint); color: var(--cat-open); }
+
+/* Check-off (req 5.1–5.3) ------------------------------------------------- */
+
+/* The heading takes the row; the tick sits at the top-right of the head. */
+.stop-head .stop-heading {
+  flex: 1 1 auto;
+}
+
+.stop-head .tick {
+  margin: -8px -8px 0 0; /* pull into the card padding so the 44px box aligns */
+  align-self: flex-start;
+}
+
+/* Done: collapse to a struck-through single line (name only). The tile and tick
+   stay so the row is still identifiable and can be un-done; everything else in
+   the card is hidden. */
+.stop[data-done="true"] .stop-time,
+.stop[data-done="true"] .status-chip,
+.stop[data-done="true"] .note-wrap,
+.stop[data-done="true"] .alert-block,
+.stop[data-done="true"] .actions {
+  display: none;
+}
+
+.stop[data-done="true"] .stop-name {
+  text-decoration: line-through;
+  color: var(--dim);
+  font-weight: 600;
+}
+
+/* Trim the card padding when collapsed so a done stop reads as one tight line. */
+.stop[data-done="true"] .stop-card {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+/* Stop conditional content ------------------------------------------------ */
+
+/* Status chip (req 4.3): 12px, 4px 10px, 8px radius, status text/bg pair. */
+.status-chip {
+  display: inline-block;
+  margin: 10px 0 0;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-chip[data-tone="ok"] { background: var(--ok-bg); color: var(--ok); }
+.status-chip[data-tone="warn"] { background: var(--warn-bg); color: var(--warn); }
+.status-chip[data-tone="open"] { background: var(--open-bg); color: var(--open); }
+
+.note-wrap {
+  margin: 10px 0 0;
+}
+
+.stop-note {
+  margin: 0;
+  font-size: 14.5px;
+  color: var(--mid);
+}
+
+/* Clamp to four lines so the day scans before it reads. Expanding the wrap
+   (via the More control) drops the clamp and shows the note in full. */
+.note-wrap[data-expanded="false"] .stop-note {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
+}
+
+/* "More" / "Less" — a text button, jade, ≥44px tap target via padding. Hidden
+   until measurement finds the note is actually clipped. */
+.note-more {
+  margin: 2px 0 0;
+  padding: 8px 0;
+  min-height: 32px;
+  border: 0;
+  background: none;
+  color: var(--go);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Alert block (req 4.4): warn pair, 11px radius, never collapsed. */
+.alert-block {
+  margin: 10px 0 0;
+  padding: 10px 12px;
+  border-radius: 11px;
+  background: var(--warn-bg);
+  color: var(--warn);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Actions row (req 4.6) ---------------------------------------------------- */
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 9px 14px;
+  border-radius: var(--r-ctrl);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--go);
+  border: 1px solid var(--go);
+  color: #fff;
+}
+
+.btn-secondary {
+  background: var(--card);
+  border: 1px solid var(--line-2);
+  color: var(--ink);
+}
+
+/* Compact leg connector (task 9): mode icon, bold duration, one summary fact.
+   The `.leg-connector` element is the expansion seam for spec 02. */
+.leg {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.leg-connector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 28px;
+  padding: 2px 0;
+  color: var(--mid);
+}
+
+.leg-icon {
+  flex: 0 0 auto;
+  display: inline-flex;
+  color: var(--mid);
+}
+
+.leg-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.leg-text {
+  margin: 0;
+  font-size: 13px;
+  color: var(--mid);
+}
+
+.leg-duration {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+
+/* Summary fact — the comma separator is a real text node in days.js, not CSS,
+   so duration and summary never concatenate. No middle dots (design-system). */
+.leg-summary {
+  color: var(--mid);
+}
+
+/* ---------------------------------------------------------- load error */
+
+.load-error {
+  margin: 24px 0;
+  padding: 16px;
+  border-radius: var(--r-card);
+  background: var(--warn-bg);
+  color: var(--warn);
+}
+
+.load-error h1 {
+  font-size: 19px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.load-error p {
+  margin: 4px 0 0;
+}
+
+/* ---------------------------------------------------------- To-sort view */
+
+.tracker-title {
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: -0.024em;
+}
+
+.days-until {
+  margin: 4px 0 0;
+  font-size: 15px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--go);
+}
+
+.todo-count {
+  margin: 6px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--dim);
+}
+
+.todo-list {
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.todo-item {
+  display: flex;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  background: var(--card);
+}
+
+/* Tick control — shared shape with stop check-off (task 11). 44px target. */
+.tick {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.tick-box {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--line-2);
+  border-radius: 7px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Filled + checkmark when done (shared by stop cards and todo rows). The tick
+   is a CSS checkmark so "done" is not conveyed by colour alone. */
+.todo-item[data-done="true"] .tick-box,
+.stop[data-done="true"] .tick-box {
+  background: var(--go);
+  border-color: var(--go);
+}
+
+.todo-item[data-done="true"] .tick-box::after,
+.stop[data-done="true"] .tick-box::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  margin-top: -1px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.todo-body {
+  min-width: 0;
+}
+
+.todo-label {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.014em;
+}
+
+.todo-note {
+  margin: 2px 0 0;
+  font-size: 14.5px;
+  color: var(--mid);
+}
+
+.todo-due {
+  margin: 4px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--open);
+}
+
+.todo-item[data-done="true"] .todo-label {
+  text-decoration: line-through;
+  color: var(--dim);
+}
+
+.todo-item[data-done="true"] .todo-note,
+.todo-item[data-done="true"] .todo-due {
+  display: none;
+}
+
+/* --------------------------------------------------------------- motion */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}

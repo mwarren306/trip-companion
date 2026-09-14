@@ -1,0 +1,49 @@
+/* Design tokens — the ONLY place a colour is defined (design-system.md).
+   If a hex appears anywhere else in the codebase, that is a bug. */
+
+/* Self-hosted Inter variable font (tech.md: self-hosted woff2, no CDN). */
+@font-face {
+  font-family: Inter;
+  src: url("../fonts/InterVariable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* surfaces */
+  --page:   #F5F7F9;
+  --card:   #FFFFFF;
+  --line:   #E5EAF0;
+  --line-2: #D4DCE5;
+
+  /* text */
+  --ink:    #101A27;
+  --mid:    #576475;
+  --dim:    #8894A4;
+
+  /* action + lodging */
+  --go:      #0B7A75;
+  --go-tint: #E2F2F1;
+
+  /* categories — fill, tint */
+  --cat-sight:  #6D3BD4;  --cat-sight-tint:  #F0EAFC;
+  --cat-food:   #C2540A;  --cat-food-tint:   #FCEEE2;
+  --cat-stay:   #0B7A75;  --cat-stay-tint:   #E2F2F1;
+  --cat-move:   #1D5FD0;  --cat-move-tint:   #E6EDFB;
+  --cat-open:   #5A6673;  --cat-open-tint:   #EDEFF2;
+
+  /* status — text, background */
+  --ok:   #0F6B45;  --ok-bg:   #E4F3EB;
+  --warn: #A8321C;  --warn-bg: #FBEAE6;
+  --open: #8A5A00;  --open-bg: #FBF0DC;
+
+  /* shape */
+  --r-card: 16px;
+  --r-ctrl: 11px;
+  --r-tile: 11px;
+  --r-pill: 999px;
+
+  /* type */
+  --font: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}

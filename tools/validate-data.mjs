@@ -1,12 +1,20 @@
 // Fails if any leg is missing required fields or any fare is a bare number.
 import { readFile } from "node:fs/promises";
 const d = JSON.parse(await readFile("data/itinerary.json", "utf8"));
+const MODES = ["walk", "taxi", "train", "bus", "tram", "vaporetto", "shuttle", "boat", "flight"];
+// "FIXTURE" is a sentinel source for placeholder legs, allowed on non-walk legs
+// ONLY when this file declares itself a fixture (top-level generated === "FIXTURE").
+// On any real file it must fail like any other unsourced non-walk leg.
+const isFixture = d.generated === "FIXTURE";
 const errs = [];
 for (const day of d.days) {
   let prev = null;
   for (const it of day.items) {
     if (it.kind === "leg") {
       for (const k of ["steps", "duration", "verified", "source"]) if (!it[k]) errs.push(`${it.id}: missing ${k}`);
+      if (!MODES.includes(it.mode)) errs.push(`${it.id}: mode must be one of ${MODES.join(", ")}`);
+      if (it.source === "estimate" && it.mode !== "walk") errs.push(`${it.id}: source "estimate" is allowed on walk legs only`);
+      if (it.source === "FIXTURE" && !isFixture) errs.push(`${it.id}: source "FIXTURE" is only allowed when top-level generated is "FIXTURE"`);
       if (Array.isArray(it.steps) && it.steps.some(s => s.length > 140)) errs.push(`${it.id}: a step exceeds 140 chars`);
       if (it.cost !== undefined && typeof it.cost !== "string") errs.push(`${it.id}: cost must be a display string`);
       if (prev?.kind !== "stop") errs.push(`${it.id}: leg must follow a stop`);

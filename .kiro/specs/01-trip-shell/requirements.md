@@ -44,7 +44,25 @@ struck-through single line, and persist via the store (see 06).
 5.2 WHEN a done stop is tapped again THE SYSTEM SHALL restore it.
 5.3 THE SYSTEM SHALL show `k of n stops done` in the header while the trip is in progress.
 
+### 6. To-sort view
+**User story:** As a traveller, I want a running checklist of things to sort so nothing is
+forgotten before or during the trip.
+
+6.1 THE SYSTEM SHALL render `data.todo` as a checklist, one item per entry, in source order.
+6.2 THE SYSTEM SHALL show each item's `label`, its `note` when present, and its `due` date when
+present. Optional fields are omitted when absent (no placeholder copy).
+6.3 WHEN the tick on a todo item is tapped THE SYSTEM SHALL mark it done, strike the item through,
+and persist via the store, in the same manner as a stop check-off (see 5.1, 06).
+6.4 WHEN a done todo item is tapped again THE SYSTEM SHALL restore it.
+6.5 THE SYSTEM SHALL show the count of open (not-done) items in the view's header line.
+6.6 WHEN the device date is before `start` THE SYSTEM SHALL show the number of days until `start`
+above the list (consistent with 1.3).
+6.7 WHEN `data.todo` is empty THE SYSTEM SHALL show a single line stating there is nothing to sort,
+rather than an empty list.
+
 ## Acceptance
 - Opens to the correct view for dates before, during, and after the trip (mock the clock).
 - Thursday 17 Sep renders all items in order with the thread unbroken.
+- Before the trip, the To-sort view lists every `todo` item with its open count and days-until;
+  ticking an item strikes it through, decrements the open count, and survives a reload.
 - Lighthouse performance ≥ 95 on a throttled mobile profile.

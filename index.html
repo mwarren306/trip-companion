@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Rome to Venice</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#F5F7F9" />
+  <!-- Start the two heavy fetches at HTML parse instead of waiting for CSS to
+       parse (font) or app.js to execute (data). Flattens the critical chain. -->
+  <link rel="preload" href="fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="data/itinerary.json" as="fetch" type="application/json" crossorigin />
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/app.css" />
+</head>
+<body>
+  <header>
+    <nav id="day-nav" aria-label="Days"></nav>
+    <div id="day-header"></div>
+  </header>
+  <main id="view" tabindex="-1"></main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

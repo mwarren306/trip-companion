@@ -1,80 +1,2570 @@
 {
-  "trip": "Rome to Venice",
-  "start": "2026-09-16",
-  "end": "2026-09-25",
-  "generated": "FIXTURE",
-  "days": [
+ "trip": "Rome to Venice",
+ "start": "2026-09-16",
+ "end": "2026-09-25",
+ "generated": "2026-09-13",
+ "trailStatusFallback": {
+  "checked": "2026-09-13",
+  "text": "Park alert 27 Aug: nessuna allerta. 591 open, free. 592-4 Monterosso–Vernazza open with a partial closure at Via Servano — enter from Via Corone (Ordinanza 77, 24 Aug). 592-3 Vernazza–Corniglia open. 592-2 Manarola–Corniglia closed indefinitely."
+ },
+ "days": [
+  {
+   "n": 1,
+   "iso": "2026-09-16",
+   "date": "Wed 16 Sep",
+   "title": "Landing in Rome",
+   "place": "Rome",
+   "items": [
     {
-      "n": 1,
-      "iso": "2026-09-16",
-      "date": "Wed 16 Sep",
-      "title": "Fixture day — placeholder only",
-      "place": "Rome",
-      "items": [
-        {
-          "kind": "stop",
-          "id": "1a",
-          "t": "morning",
-          "name": "Fixture Stop One",
-          "la": 41.9028,
-          "lo": 12.4964,
-          "cat": "sight",
-          "status": "plain",
-          "note": "Placeholder stop for the FIXTURE itinerary. Not real trip content.",
-          "directions": "w"
-        },
-        {
-          "kind": "leg",
-          "id": "1a-1b",
-          "mode": "walk",
-          "summary": "Short walk",
-          "duration": "6 min",
-          "distance": "0.4 km",
-          "verified": "2026-09-13",
-          "source": "estimate",
-          "steps": [
-            "Placeholder walking leg. Distance and time are a straight-line estimate, not a verified route."
-          ]
-        },
-        {
-          "kind": "stop",
-          "id": "1b",
-          "t": "12:00",
-          "name": "Fixture Stop Two",
-          "la": 41.8902,
-          "lo": 12.4922,
-          "cat": "food",
-          "status": "plain",
-          "note": "Placeholder stop for the FIXTURE itinerary. Not real trip content.",
-          "directions": "w"
-        },
-        {
-          "kind": "leg",
-          "id": "1b-1c",
-          "mode": "walk",
-          "summary": "Short walk",
-          "duration": "9 min",
-          "distance": "0.7 km",
-          "verified": "2026-09-13",
-          "source": "estimate",
-          "steps": [
-            "Placeholder walking leg. Distance and time are a straight-line estimate, not a verified route."
-          ]
-        },
-        {
-          "kind": "stop",
-          "id": "1c",
-          "t": "afternoon",
-          "name": "Fixture Stop Three",
-          "la": 41.8986,
-          "lo": 12.4769,
-          "cat": "stay",
-          "status": "plain",
-          "note": "Placeholder stop for the FIXTURE itinerary. Not real trip content.",
-          "directions": "w"
-        }
-      ]
+     "kind": "stop",
+     "id": "1a",
+     "t": "17:50",
+     "name": "Rome Fiumicino Airport",
+     "la": 41.8034632,
+     "lo": 12.2519211,
+     "cat": "move",
+     "status": "set",
+     "note": "UA 8802 lands from Frankfurt. Follow signs for Uscita / Exit and Taxi at Terminal 3 arrivals. Do not accept a ride from anyone approaching you inside the terminal.",
+     "directions": "r",
+     "hasSecret": true
+    },
+    {
+     "kind": "leg",
+     "id": "1a-1b",
+     "mode": "taxi",
+     "summary": "€55 fixed fare",
+     "duration": "40–50 min",
+     "verified": "2026-09-13",
+     "source": "adr.it fixed-fare table; italy-2026.html",
+     "steps": [
+      "Use only the white municipal taxis at the Arrivals rank outside Terminal 3. Ignore anyone offering a car inside.",
+      "Before the car moves, say: cinquantacinque, tariffa fissa. The fixed fare to inside the Aurelian Walls is €55.",
+      "€55 includes luggage and all supplements. Torre Argentina qualifies. No meter needed.",
+      "Drivers must accept cards. If paying cash, use notes under €50 — two twenties and a ten and a €5 coin.",
+      "Why not the Leonardo Express: €14 each gets you to Termini, still 2 km from the hotel with bags at evening rush."
+     ],
+     "operator": "Roma Capitale licensed taxi",
+     "cost": "€55 total, fixed"
+    },
+    {
+     "kind": "stop",
+     "id": "1b",
+     "t": "19:00",
+     "name": "Torre Argentina Relais",
+     "la": 41.8952268,
+     "lo": 12.4762557,
+     "cat": "stay",
+     "status": "set",
+     "note": "Executive double, 1 king, balcony, city view. Three nights, non-refundable. Drop bags and walk straight back out — Rome at night on your first evening is the memory that sticks.",
+     "directions": "w",
+     "hasSecret": true
+    },
+    {
+     "kind": "leg",
+     "id": "1b-1c",
+     "mode": "walk",
+     "summary": "450 m",
+     "duration": "5 min",
+     "distance": "450 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Follow the Directions button; it opens walking directions from where you stand."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "1c",
+     "t": "19:45",
+     "name": "Heart of Rome walk",
+     "la": 41.8956045,
+     "lo": 12.4721757,
+     "cat": "sight",
+     "status": "plain",
+     "note": "Rick Steves' free audio tour, about an hour: Campo de' Fiori, Piazza Navona, Pantheon, Trevi, Spanish Steps. Starts five minutes from the hotel door.",
+     "directions": "w",
+     "alert": "The walk ends at the Spanish Steps, about 25 minutes from Emma. Leave the Steps by 20:35 or take a €10 taxi."
+    },
+    {
+     "kind": "leg",
+     "id": "1c-1d",
+     "mode": "walk",
+     "summary": "350 m",
+     "duration": "25 min",
+     "distance": "350 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "The audio walk finishes at the Spanish Steps.",
+      "From there Emma is a 25-minute walk southwest, or a short taxi."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "1d",
+     "t": "21:00",
+     "name": "Emma Pizzeria",
+     "la": 41.8948002,
+     "lo": 12.4752375,
+     "cat": "food",
+     "status": "set",
+     "note": "Confirmed, 21:00. Via del Monte della Farina 28. Roman tonda — paper-thin and crackling, made with Roscioli flour. About €25–30 each. Low-drama after twenty hours of travel.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "1d-1e",
+     "mode": "walk",
+     "summary": "450 m",
+     "duration": "5 min",
+     "distance": "450 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Follow the Directions button; it opens walking directions from where you stand."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "1e",
+     "t": "22:30",
+     "name": "Gelateria del Teatro",
+     "la": 41.8918955,
+     "lo": 12.4737937,
+     "cat": "food",
+     "status": "plain",
+     "note": "Lungotevere dei Vallati 25, five minutes away. The real thing. Tiramisu is the owner's pick.",
+     "directions": "w"
     }
-  ],
-  "todo": []
+   ]
+  },
+  {
+   "n": 2,
+   "iso": "2026-09-17",
+   "date": "Thu 17 Sep",
+   "title": "Ancient Rome",
+   "place": "Rome",
+   "items": [
+    {
+     "kind": "stop",
+     "id": "2a",
+     "t": "08:15",
+     "name": "Roscioli Caffè",
+     "la": 41.8941457,
+     "lo": 12.4744403,
+     "cat": "food",
+     "status": "plain",
+     "note": "Piazza Benedetto Cairoli 16. Cornetto and cappuccino standing, or the maritozzo con panna. Opens 07:00. Keep it quick — the morning is tight.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "2a-2b",
+     "mode": "walk",
+     "summary": "2.1 km",
+     "duration": "20 min",
+     "distance": "2.1 km",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Down Via dei Fori Imperiali. Twenty minutes on foot, or tram 8 and a short walk.",
+      "Security queue at the Colosseum can run 15 minutes even with a timed ticket."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "2b",
+     "t": "09:45",
+     "name": "Colosseum",
+     "la": 41.8902102,
+     "lo": 12.4922309,
+     "cat": "sight",
+     "status": "set",
+     "note": "Booked 09:45 via ticketing.colosseo.it, €20 each, includes Forum and Palatine. Bring ID. Rick's free audio tour. Skip the Palatine — he tells short-trip visitors to.",
+     "directions": "w",
+     "window": {
+      "from": "09:30",
+      "to": "09:45"
+     },
+     "alert": "The 09:45 slot leaves just over two hours for Colosseum plus Forum. Wrap by 11:45 sharp to protect the noon San Clemente ticket."
+    },
+    {
+     "kind": "leg",
+     "id": "2b-2c",
+     "mode": "walk",
+     "summary": "700 m",
+     "duration": "5 min",
+     "distance": "700 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Enter the Forum from the Colosseum side on the same ticket."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "2c",
+     "t": "10:45",
+     "name": "Roman Forum",
+     "la": 41.8920906,
+     "lo": 12.4864378,
+     "cat": "sight",
+     "status": "flag",
+     "note": "Same ticket. Rick's free Forum audio tour — trim it rather than run late; it's self-paced and free.",
+     "directions": "w",
+     "alert": "If you are not walking toward San Clemente by 11:45, cut the Forum short. The timed ticket is the one thing that cannot flex."
+    },
+    {
+     "kind": "leg",
+     "id": "2c-2d",
+     "mode": "walk",
+     "summary": "1.3 km",
+     "duration": "5 min",
+     "distance": "1.3 km",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Exit toward the Colosseum, then east on Via di San Giovanni in Laterano. Five minutes."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "2d",
+     "t": "12:00",
+     "name": "Basilica di San Clemente",
+     "la": 41.8893347,
+     "lo": 12.4975757,
+     "cat": "sight",
+     "status": "set",
+     "note": "Booked, 2 tickets, 12:00, €10 each. Arrive 11:50. Three layers: 12th-century basilica over a 4th-century church over a 2nd-century Mithraic temple, with an underground river. About 30 minutes. Upper church is free.",
+     "directions": "w",
+     "window": {
+      "from": "11:50",
+      "to": "12:00"
+     }
+    },
+    {
+     "kind": "leg",
+     "id": "2d-2e",
+     "mode": "walk",
+     "summary": "850 m",
+     "duration": "8 min",
+     "distance": "850 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Eight minutes north, uphill, then the stairs at Via delle Sette Sale."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "2e",
+     "t": "12:35",
+     "name": "San Pietro in Vincoli",
+     "la": 41.8937984,
+     "lo": 12.4931498,
+     "cat": "sight",
+     "status": "flag",
+     "note": "Free, no ticket. Michelangelo's Moses, horns and all. Ten minutes inside.",
+     "directions": "w",
+     "alert": "Closed 12:20–15:00 for lunch (Google listing, checked 13 Sep). At 12:35 the door will be shut. Move it to 15:00 before the Capitoline, or skip it — the plan already names this as the piece to sacrifice."
+    },
+    {
+     "kind": "leg",
+     "id": "2e-2f",
+     "mode": "walk",
+     "summary": "1.7 km",
+     "duration": "20 min",
+     "distance": "1.7 km",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Follow the Directions button; it opens walking directions from where you stand."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "2f",
+     "t": "14:00",
+     "name": "Enoteca Corsi",
+     "la": 41.8968706,
+     "lo": 12.4787834,
+     "cat": "food",
+     "status": "plain",
+     "note": "Via del Gesù 87. Lunch only, no bookings, handwritten menu, paper tablecloths. Thursday is gnocchi day. About €20 each. Three minutes from the hotel.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "2f-2g",
+     "mode": "walk",
+     "summary": "700 m",
+     "duration": "10 min",
+     "distance": "700 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Ten minutes southeast. Climb the Cordonata ramp to Piazza del Campidoglio."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "2g",
+     "t": "15:15",
+     "name": "Capitoline Museums",
+     "la": 41.8929428,
+     "lo": 12.4825577,
+     "cat": "sight",
+     "status": "plain",
+     "note": "No booking needed; walk-up is reliable on a Thursday. Michelangelo's piazza, the she-wolf, and the Tabularium's overlook of the Forum you just walked. No bags inside — free lockers.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "2g-2h",
+     "mode": "walk",
+     "summary": "1.1 km",
+     "duration": "8 min",
+     "distance": "1.1 km",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Follow the Directions button; it opens walking directions from where you stand."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "2h",
+     "t": "17:00",
+     "name": "Pantheon",
+     "la": 41.8986108,
+     "lo": 12.4768729,
+     "cat": "sight",
+     "status": "plain",
+     "note": "Walk-up is fine on a Thursday afternoon. Rick's free audio tour. Open to 19:00.",
+     "directions": "w",
+     "alert": "Ticket price: the plan says €7; recent visitor reports and the official site say €5. Either way, buy at the door, cards accepted."
+    },
+    {
+     "kind": "leg",
+     "id": "2h-2i",
+     "mode": "walk",
+     "summary": "500 m",
+     "duration": "4 min",
+     "distance": "500 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Follow the Directions button; it opens walking directions from where you stand."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "2i",
+     "t": "17:45",
+     "name": "Torre Argentina Relais",
+     "la": 41.8952268,
+     "lo": 12.4762557,
+     "cat": "stay",
+     "status": "plain",
+     "note": "Siesta. Four minutes from the Pantheon. An hour off your feet before dinner is the whole reason the plan works.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "2i-2j",
+     "mode": "walk",
+     "summary": "1.1 km",
+     "duration": "12 min",
+     "distance": "1.1 km",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Follow the Directions button; it opens walking directions from where you stand."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "2j",
+     "t": "19:30",
+     "name": "Il Goccetto",
+     "la": 41.8977936,
+     "lo": 12.4673106,
+     "cat": "food",
+     "status": "plain",
+     "note": "Via dei Banchi Vecchi 14. A 1500s bishop's palace with a painted ceiling, hundreds of bottles, no music, no cocktails. Walk-in only. Glasses €5–9. Fills after 18:30.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "2j-2k",
+     "mode": "walk",
+     "summary": "1.4 km",
+     "duration": "10 min",
+     "distance": "1.4 km",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Ten minutes east into the Ghetto. Via del Portico d'Ottavia is the main street."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "2k",
+     "t": "20:30",
+     "name": "Ba'Ghetto",
+     "la": 41.892715,
+     "lo": 12.477764,
+     "cat": "food",
+     "status": "set",
+     "note": "Booked 20:30. Via del Portico d'Ottavia 57, terrace on the Ghetto's main street. Strictly kosher meat kitchen — the cheeseless carbonara is worth ordering for that alone. Fiori di zucca, gricia con carciofi croccanti. Thursday is the only night the Ghetto is open to you: everything kosher closes Friday sundown to Saturday sundown.",
+     "directions": "w"
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "iso": "2026-09-18",
+   "date": "Fri 18 Sep",
+   "title": "A shopping morning, then the Vatican",
+   "place": "Rome",
+   "items": [
+    {
+     "kind": "stop",
+     "id": "3a",
+     "t": "09:25",
+     "name": "Campo de' Fiori market",
+     "la": 41.8956045,
+     "lo": 12.4721757,
+     "cat": "sight",
+     "status": "plain",
+     "note": "Open-air since 1869, going since 07:00. Half the stalls are spice jars, truffle sauces, oils, limoncello, aprons — which for gift-buying is a feature. Flowers and produce at the far end. Market runs to about 14:00.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "3a-3b",
+     "mode": "taxi",
+     "summary": "€12–15 metered, to Piazza Cola di Rienzo",
+     "duration": "12 min",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Hail a white taxi on Corso Vittorio Emanuele II or use the FreeNow app. Ask for Piazza Cola di Rienzo.",
+      "Metered, about €12–15 across the river.",
+      "Bus 492 does run Largo Argentina → Piazza Cavour → Risorgimento, but do not gamble a fixed 13:30 appointment on a Rome bus."
+     ],
+     "operator": "Roma Capitale licensed taxi",
+     "cost": "€12–15 metered"
+    },
+    {
+     "kind": "stop",
+     "id": "3b",
+     "t": "10:15",
+     "name": "Via Cola di Rienzo and Castroni",
+     "la": 41.9073023,
+     "lo": 12.4631731,
+     "cat": "sight",
+     "status": "plain",
+     "note": "1.1 km of shopfronts from the Tiber to Piazza Risorgimento, where Romans actually shop. Coin Excelsior at 173 opens 10:00. The unmissable stop is Castroni at 196: food emporium since 1932, coffee roasted in-house, torrone, oils. Open 08:00–20:00.",
+     "directions": "w",
+     "alert": "Anything you buy here goes into the Vatican cloakroom later — food and drink must be checked regardless of size. Ask Castroni about shipping to the hotel, or buy the heavy things Saturday morning."
+    },
+    {
+     "kind": "leg",
+     "id": "3b-3c",
+     "mode": "walk",
+     "summary": "1.2 km",
+     "duration": "8 min",
+     "distance": "1.2 km",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Follow the Directions button; it opens walking directions from where you stand."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "3c",
+     "t": "12:00",
+     "name": "Mercato Trionfale",
+     "la": 41.9095957,
+     "lo": 12.4526103,
+     "cat": "sight",
+     "status": "plain",
+     "note": "Via Andrea Doria 41. 273 stalls, covered, the largest neighbourhood market in Rome and a working one. Friday it runs to 19:00. Vacuum-packed pecorino and salumi are the realistic gift buys.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "3c-3d",
+     "mode": "walk",
+     "summary": "800 m",
+     "duration": "8 min",
+     "distance": "800 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Follow the Directions button; it opens walking directions from where you stand."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "3d",
+     "t": "12:30",
+     "name": "Pizzarium",
+     "la": 41.9066758,
+     "lo": 12.4466709,
+     "cat": "food",
+     "status": "plain",
+     "note": "Gabriele Bonci, Via della Meloria 43. Pizza al taglio by weight, standing. Take a number from the machine outside. Open from 11:15. Leave by 13:15.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "3d-3e",
+     "mode": "walk",
+     "summary": "800 m",
+     "duration": "12 min",
+     "distance": "800 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Twelve minutes east along Via Candia, then right on Viale Vaticano to the museum entrance.",
+      "Travel light: free cloakroom at the museum, none at the basilica, and you won't come back this way."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "3e",
+     "t": "13:30",
+     "name": "Vatican Museums and Sistine Chapel",
+     "la": 41.9064878,
+     "lo": 12.4536413,
+     "cat": "sight",
+     "status": "set",
+     "note": "Private guide, 14:00–16:30, €412 for two including museum tickets, deposit paid. Meet at the Viale Vaticano entrance at 13:30. She supplies the tickets — buy nothing at tickets.museivaticani.va. Shoulders and knees covered, hats off inside. No photos at all in the Sistine.",
+     "directions": "w",
+     "window": {
+      "from": "13:30",
+      "to": "14:00"
+     },
+     "alert": "The cloakroom is mandatory for bags over 40×35×15 cm and for any food or drink of any size. That costs 5–10 minutes at the door — arrive at 13:30, not 13:40."
+    },
+    {
+     "kind": "leg",
+     "id": "3e-3f",
+     "mode": "walk",
+     "summary": "650 m",
+     "duration": "5 min",
+     "distance": "650 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Internal shortcut from the Sistine Chapel, escorted by your guide. No walk around the walls, no security queue."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "3f",
+     "t": "16:30",
+     "name": "St Peter's Basilica",
+     "la": 41.9021667,
+     "lo": 12.4539367,
+     "cat": "sight",
+     "status": "set",
+     "note": "Your guide walks you through the Sistine → St Peter's shortcut at 16:30 and leaves you at the door. Skip-the-line entry ticket bought for the 16:30 slot, €7 each — required for the shortcut since the Jubilee. Rick's free audio tour. Pietà on the right as you enter. No dome climb this trip.",
+     "directions": "w",
+     "window": {
+      "from": "16:30",
+      "to": "16:45"
+     }
+    },
+    {
+     "kind": "leg",
+     "id": "3f-3g",
+     "mode": "taxi",
+     "summary": "€15–20 metered, to Santa Cecilia",
+     "duration": "20 min",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Taxi rank at Piazza Pio XII, at the end of Via della Conciliazione. Ask for Piazza di Santa Cecilia, Trastevere.",
+      "Metered, about €15–20. Via dei Vascellari is the far southeast corner of Trastevere, past Santa Cecilia near Ponte Palatino.",
+      "Not bus 23 tonight — you want the certainty."
+     ],
+     "operator": "Roma Capitale licensed taxi",
+     "cost": "about €15–20 metered"
+    },
+    {
+     "kind": "stop",
+     "id": "3g",
+     "t": "18:05",
+     "name": "Santa Cecilia in Trastevere",
+     "la": 41.8875482,
+     "lo": 12.4759469,
+     "cat": "sight",
+     "status": "plain",
+     "note": "Five minutes from Da Enzo. Open 16:30–18:30. The Cavallini frescoes and the mosaics. Use the spare twenty minutes here rather than standing in a queue that hasn't formed yet.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "3g-3h",
+     "mode": "walk",
+     "summary": "250 m",
+     "duration": "5 min",
+     "distance": "250 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Follow the Directions button; it opens walking directions from where you stand."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "3h",
+     "t": "18:25",
+     "name": "Da Enzo al 29",
+     "la": 41.8880847,
+     "lo": 12.4778554,
+     "cat": "food",
+     "status": "flag",
+     "note": "Via dei Vascellari 29. No reservations, ever — any site offering one is a directory listing. Service opens 18:30. Amatriciana, carbonara, carciofi alla giudia. Fast, close tables, a 75-minute dinner. Closed Sunday.",
+     "directions": "w",
+     "alert": "Be at the door a few minutes before 18:30 for the first seating. Staff take drink orders in the line. If the queue looks worse than expected, La Tavernaccia da Bruno nearby takes bookings."
+    },
+    {
+     "kind": "leg",
+     "id": "3h-3i",
+     "mode": "walk",
+     "summary": "900 m",
+     "duration": "10 min",
+     "distance": "900 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Follow the Directions button; it opens walking directions from where you stand."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "3i",
+     "t": "20:15",
+     "name": "Trastevere walk",
+     "la": 41.8896969,
+     "lo": 12.4702193,
+     "cat": "sight",
+     "status": "plain",
+     "note": "Rick's free Trastevere audio tour through the lanes, with nothing left to be on time for. Home over Ponte Sisto — 12 minutes to the hotel.",
+     "directions": "w"
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "iso": "2026-09-19",
+   "date": "Sat 19 Sep",
+   "title": "Borghese, then north to the coast",
+   "place": "Rome to Levanto",
+   "items": [
+    {
+     "kind": "stop",
+     "id": "4a",
+     "t": "08:15",
+     "name": "Torre Argentina Relais",
+     "la": 41.8952268,
+     "lo": 12.4762557,
+     "cat": "stay",
+     "status": "plain",
+     "note": "Bags packed and left at the desk. Passports and printed tickets in your daypack. You return at 11:15 and leave for good at 12:50.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "4a-4b",
+     "mode": "taxi",
+     "summary": "€12–15 metered, to the Borghese",
+     "duration": "15 min",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Taxi from Largo Argentina to Galleria Borghese, Piazzale Scipione Borghese 5. About 15 minutes, about €12–15.",
+      "Or Metro A from Barberini to Flaminio and walk through the park — only if you've left by 08:00."
+     ],
+     "operator": "Roma Capitale licensed taxi",
+     "cost": "about €12–15 metered"
+    },
+    {
+     "kind": "stop",
+     "id": "4b",
+     "t": "09:00",
+     "name": "Galleria Borghese",
+     "la": 41.9142103,
+     "lo": 12.4921442,
+     "cat": "sight",
+     "status": "set",
+     "note": "Booked slot 09:00–11:00, a hard two hours. Arrive 08:30: collect at the basement ticket office before going up, then the mandatory free cloakroom — bags and anything larger than a small purse. Upstairs first while the ground floor is congested, then down for the Berninis and the Caravaggio room. Out by 11:15.",
+     "directions": "w",
+     "window": {
+      "from": "08:30",
+      "to": "09:00"
+     },
+     "hasSecret": true,
+     "alert": "Being late doesn't shorten the visit, it forfeits it. Print-at-home ticket; bring the PDF on both phones."
+    },
+    {
+     "kind": "leg",
+     "id": "4b-4c",
+     "mode": "taxi",
+     "summary": "€12–15 metered, back for bags",
+     "duration": "15 min",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Taxi from the Borghese back to Largo di Torre Argentina. About 15 minutes.",
+      "Collect bags. Antico Forno Roscioli is three minutes from the hotel."
+     ],
+     "operator": "Roma Capitale licensed taxi",
+     "cost": "about €12–15 metered"
+    },
+    {
+     "kind": "stop",
+     "id": "4c",
+     "t": "11:30",
+     "name": "Antico Forno Roscioli",
+     "la": 41.8945667,
+     "lo": 12.4742778,
+     "cat": "food",
+     "status": "plain",
+     "note": "Via dei Chiavari 34. Split pizza bianca stuffed with mortadella — the best €6 in Rome — to eat on the train. If the gap doesn't materialise, Mercato Centrale inside Termini (Via Giolitti side, open from 07:30) has a Bonci stall and Trapizzino.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "4c-4d",
+     "mode": "taxi",
+     "summary": "€12 metered, to Termini",
+     "duration": "15 min",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Taxi from the hotel to Roma Termini at 12:50. About €12.",
+      "Not bus 64 with luggage — the most pickpocketed line in the city.",
+      "Be through the turnstiles by 13:20. Redeeming a Tripmasters PNR at a kiosk can take 45–60 minutes; with printed tickets, 25–30 is plenty."
+     ],
+     "operator": "Roma Capitale licensed taxi",
+     "cost": "about €12 metered"
+    },
+    {
+     "kind": "stop",
+     "id": "4d",
+     "t": "13:20",
+     "name": "Roma Termini",
+     "la": 41.9012873,
+     "lo": 12.5015756,
+     "cat": "move",
+     "status": "set",
+     "note": "FrecciaBianca 8620 departs 13:57, arrives La Spezia Centrale 17:44. Platform posts 10–20 minutes out, sometimes 5. Watch the board for the train NUMBER, 8620 — it will show as Milano Centrale. Automated turnstiles scan your QR; platform access opens 40 minutes before.",
+     "directions": "r",
+     "window": {
+      "from": "13:20",
+      "to": "13:57"
+     },
+     "hasSecret": true
+    },
+    {
+     "kind": "leg",
+     "id": "4d-4e",
+     "mode": "train",
+     "summary": "FrecciaBianca 8620, coach 9",
+     "duration": "3 h 47",
+     "verified": "2026-09-13",
+     "source": "Trenitalia PNR email; italy-2026.html",
+     "steps": [
+      "Board coach 9. Seats are assigned — see the locked reference.",
+      "Do not stamp this ticket: it names a train, date and seat. Trenitalia's conditions say validation is not required for reserved tickets.",
+      "The Trenitalia email is a valid ticket. Keep the PDF on both phones; a lost PNR is treated as travelling without a ticket.",
+      "Ignore the Tripmasters boilerplate telling you to validate at the platform — it's legacy text and wrong for this ticket.",
+      "Super Economy fare: no changes, no refunds. Missing it means buying a new ticket."
+     ],
+     "operator": "Trenitalia",
+     "line": "FrecciaBianca 8620",
+     "depart": "13:57",
+     "arrive": "17:44",
+     "validate": "No — reserved seat, do not stamp.",
+     "hasSecret": true,
+     "platform": "Posts 10–20 min out. Watch for train number 8620, shown as Milano Centrale."
+    },
+    {
+     "kind": "stop",
+     "id": "4e",
+     "t": "17:44",
+     "name": "La Spezia Centrale",
+     "la": 44.1113532,
+     "lo": 9.8134318,
+     "cat": "move",
+     "status": "plain",
+     "note": "Small station. Known pickpocket spot in season — keep bags close. Buy two regional singles to Levanto now, and Monday morning's La Spezia tickets at the same time to skip the queue.",
+     "directions": "r"
+    },
+    {
+     "kind": "leg",
+     "id": "4e-4f",
+     "mode": "train",
+     "summary": "Regional to Levanto, buy at the machine",
+     "duration": "20 min",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Buy two singles La Spezia → Levanto at the machine or in the Trenitalia app. About €10 each on a peak weekend; confirm at the machine.",
+      "Paper ticket: stamp it in the green validator before boarding. App ticket: do not.",
+      "Trains every 15–20 minutes. Take the first one — the hotel asked for your train number, so message it once you know it.",
+      "Also buy Monday's Levanto → La Spezia singles now to skip the morning queue."
+     ],
+     "operator": "Trenitalia regionale",
+     "cost": "about €10 each; confirm at the machine",
+     "validate": "Paper: stamp before boarding. App: do not.",
+     "buy": "Station machine or Trenitalia app"
+    },
+    {
+     "kind": "stop",
+     "id": "4f",
+     "t": "18:15",
+     "name": "Levanto station",
+     "la": 44.1740824,
+     "lo": 9.6158222,
+     "cat": "move",
+     "status": "plain",
+     "note": "The moment you're off the train, WhatsApp the hotel with your arrival: +39 0187 807672. They send the shuttle on demand for arrivals, or a taxi if it's out.",
+     "directions": "r"
+    },
+    {
+     "kind": "leg",
+     "id": "4f-4g",
+     "mode": "shuttle",
+     "summary": "WhatsApp +39 0187 807672 on arrival",
+     "duration": "10 min",
+     "verified": "2026-09-13",
+     "source": "Hotel Al Terra di Mare (Dario), via italy-2026.html",
+     "steps": [
+      "WhatsApp +39 0187 807672 from the platform: your name, the train you're on, that you've arrived.",
+      "The hotel sends its shuttle or, if it's out, a taxi. Wait at the station forecourt.",
+      "This ride is one of the two included daily because you arrived by train."
+     ],
+     "operator": "Hotel Al Terra di Mare",
+     "cost": "included"
+    },
+    {
+     "kind": "stop",
+     "id": "4g",
+     "t": "18:30",
+     "name": "Hotel Al Terra di Mare",
+     "la": 44.1775807,
+     "lo": 9.6324838,
+     "cat": "stay",
+     "status": "set",
+     "note": "Località Gallona — 1.5 km uphill from the station, not walkable with bags. A 4-star built as a mock Ligurian village; the corridors are outdoor lanes. Standard double, queen, two nights, breakfast 08:00–10:30.",
+     "directions": "w",
+     "alert": "At check-in, book every shuttle you'll need for the whole stay — they can't be reserved in advance: 19:00 down and 22:00 up tonight; 08:35 down, 22:00 and 23:00 up Sunday; 08:35 down Monday."
+    },
+    {
+     "kind": "leg",
+     "id": "4g-4h",
+     "mode": "shuttle",
+     "summary": "19:00 down, booked at check-in",
+     "duration": "10 min",
+     "verified": "2026-09-13",
+     "source": "Hotel Al Terra di Mare (Dario), via italy-2026.html",
+     "steps": [
+      "Fixed timetable, reservation required — you booked this at check-in.",
+      "Downhill runs: 08:35, 09:15, 09:45, 10:15, 11:15, then 15:10, 16:50, 17:20, 18:10, 19:00, 19:50.",
+      "Ask for the seafront or the old town stop."
+     ],
+     "operator": "Hotel Al Terra di Mare",
+     "depart": "19:00",
+     "cost": "included (2nd ride of the day)"
+    },
+    {
+     "kind": "stop",
+     "id": "4h",
+     "t": "19:30",
+     "name": "I 7 Oblò",
+     "la": 44.1695146,
+     "lo": 9.6131199,
+     "cat": "food",
+     "status": "plain",
+     "note": "Levanto old town. Walk-in street food, no reservation: focaccia tipo Recco and gattafin, the fried herb ravioli you won't find in the villages. Aperitivo on the seafront first.",
+     "directions": "w",
+     "alert": "Closes at 21:00 — earlier than any Italian kitchen you'd expect. Be there by 19:30."
+    },
+    {
+     "kind": "leg",
+     "id": "4h-4i",
+     "mode": "shuttle",
+     "summary": "22:00 up, about €5",
+     "duration": "10 min",
+     "verified": "2026-09-13",
+     "source": "Hotel Al Terra di Mare (Dario), via italy-2026.html",
+     "steps": [
+      "Uphill runs: 15:20, 17:00, 17:30, 18:20, 19:10, 20:00, 21:00, 22:00, 22:30, 23:00. Nothing before mid-afternoon.",
+      "Booked at check-in. Third ride today, so about €5 per room.",
+      "If you miss the last shuttle it is 1.5 km uphill in the dark — ask the restaurant to call a taxi before you need one."
+     ],
+     "operator": "Hotel Al Terra di Mare",
+     "depart": "22:00",
+     "cost": "about €5"
+    },
+    {
+     "kind": "stop",
+     "id": "4i",
+     "t": "22:15",
+     "name": "Hotel Al Terra di Mare",
+     "la": 44.1775807,
+     "lo": 9.6324838,
+     "cat": "stay",
+     "status": "plain",
+     "note": "The 22:00 uphill shuttle. Third ride of the day, so about €5 — worth it against a 1.5 km climb in the dark.",
+     "directions": "w"
+    }
+   ]
+  },
+  {
+   "n": 5,
+   "iso": "2026-09-20",
+   "date": "Sun 20 Sep",
+   "title": "The big day — Mesco and the Blue Trail",
+   "place": "Cinque Terre",
+   "items": [
+    {
+     "kind": "stop",
+     "id": "5a",
+     "t": "08:00",
+     "name": "Hotel Al Terra di Mare",
+     "la": 44.1775807,
+     "lo": 9.6324838,
+     "cat": "stay",
+     "status": "plain",
+     "note": "Breakfast, first sitting — it's included and you're about to burn it. Proper hiking shoes with tread: the card bans open shoes and smooth soles and rangers check at trailheads.",
+     "directions": "w",
+     "alert": "Check the park's live map before the shuttle: mappe.parconazionale5terre.it. A landslide closed a short stretch of Monterosso–Vernazza in late August (Ordinanza 77) — walkable via Via Corone, unconfirmed as reopened."
+    },
+    {
+     "kind": "leg",
+     "id": "5a-5b",
+     "mode": "shuttle",
+     "summary": "08:35 down, booked at check-in",
+     "duration": "10 min",
+     "verified": "2026-09-13",
+     "source": "Hotel Al Terra di Mare (Dario), via italy-2026.html",
+     "steps": [
+      "First downhill run of the day. Booked at check-in. Ask for the seafront.",
+      "One of today's two included rides."
+     ],
+     "operator": "Hotel Al Terra di Mare",
+     "depart": "08:35",
+     "cost": "included"
+    },
+    {
+     "kind": "stop",
+     "id": "5b",
+     "t": "08:45",
+     "name": "Levanto seafront trailhead",
+     "la": 44.1685728,
+     "lo": 9.6101688,
+     "cat": "sight",
+     "status": "plain",
+     "note": "Trail 591 to Monterosso via Punta Mesco starts at the east end of the seafront. 6.8 km, about 3 hours, strenuous from the start, topping out at 312 m. Free — outside the park, no card, no checkpoint. Almost nobody walks it.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "5b-5c",
+     "mode": "walk",
+     "summary": "Trail 591, free, 5.5 km",
+     "duration": "2 h 20",
+     "verified": "2026-09-13",
+     "source": "parconazionale5terre.it via italy-2026.html",
+     "steps": [
+      "Follow the red-and-white 591 markers from the east end of Levanto's seafront. The climb is immediate.",
+      "About 40 minutes before Monterosso, take the signed detour to the Hermitage of Sant'Antonio del Mesco on the headland.",
+      "No card, no checkpoint. Carry water — there is none on the trail."
+     ],
+     "distance": "about 5.5 km"
+    },
+    {
+     "kind": "stop",
+     "id": "5c",
+     "t": "11:00",
+     "name": "Hermitage of Sant'Antonio del Mesco",
+     "la": 44.1478,
+     "lo": 9.632,
+     "cat": "sight",
+     "status": "plain",
+     "note": "Ruined 13th-century hermitage on the headland, about 40 minutes before Monterosso. From here you see all five villages, with Levanto behind you. The most scenic single stretch in the region.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "5c-5d",
+     "mode": "walk",
+     "summary": "Trail 591, 1.3 km down",
+     "duration": "40 min",
+     "verified": "2026-09-13",
+     "source": "parconazionale5terre.it via italy-2026.html",
+     "steps": [
+      "Rejoin 591 and descend into the Fegina side of Monterosso — the new town by the station and beach.",
+      "The focaccia shop is right there on Via Fegina."
+     ],
+     "distance": "about 1.3 km"
+    },
+    {
+     "kind": "stop",
+     "id": "5d",
+     "t": "11:45",
+     "name": "Monterosso — Il Massimo della Focaccia",
+     "la": 44.1457299,
+     "lo": 9.6491212,
+     "cat": "food",
+     "status": "plain",
+     "note": "Refuel. Focaccia baked in the shop, eaten on the benches above the beach. Open 09:00–18:30 Sunday. If it's warm, this is the best swim stop of the day.",
+     "directions": "w",
+     "alert": "The plan lists Via San Martino 13; the shop is on Via Fegina 50, facing the beach next to the station — which is where the Mesco trail delivers you anyway."
+    },
+    {
+     "kind": "leg",
+     "id": "5d-5e",
+     "mode": "walk",
+     "summary": "Trail 592-4, card required, 3.3 km",
+     "duration": "1 h 30 – 2 h",
+     "verified": "2026-09-13",
+     "source": "parconazionale5terre.it; Comune di Monterosso Ordinanza 77; card PDF",
+     "steps": [
+      "Card checkpoint at the trailhead: show card and photo ID together. Cards are nominative.",
+      "Enter from Via Corone, not Via Servano — a landslide closed that short stretch in late August. Check the live map that morning.",
+      "Long steep stone staircases out of Monterosso; you gain most of the 175 m in the first kilometre.",
+      "On peak days the park makes this section one-way Monterosso → Vernazza 09:00–14:00. That's your direction.",
+      "The card marks 12:00–14:00 as the red band — hiking not recommended. You'll be in it. If behind, call Belforte from the trailhead.",
+      "Two viewpoints over Vernazza on the descent, about 15 and 5 minutes above the village."
+     ],
+     "distance": "3.3 km",
+     "hasSecret": true
+    },
+    {
+     "kind": "stop",
+     "id": "5e",
+     "t": "14:00",
+     "name": "Ristorante Belforte, Vernazza",
+     "la": 44.1350185,
+     "lo": 9.6815282,
+     "cat": "food",
+     "status": "set",
+     "note": "Booked 14:00, confirmed directly by the restaurant. Built into the sea wall — you feel the mist from the surf. €50–70 each. Ask for the terrace on arrival.",
+     "directions": "w",
+     "alert": "Sunday lunch runs 12:30–14:30; after about 14:20 the table is effectively lost. If you're behind at the Monterosso trailhead, call +39 0187 812222 with an honest ETA. Missed it: Il Pirata delle 5 Terre, Via Gavino 36 by the station, serves until 19:00 Sunday."
+    },
+    {
+     "kind": "leg",
+     "id": "5e-5f",
+     "mode": "walk",
+     "summary": "100 m",
+     "duration": "5 min",
+     "distance": "100 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Up the stone stairs from the harbour. Five minutes."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "5f",
+     "t": "15:15",
+     "name": "Doria Castle, Vernazza",
+     "la": 44.1345304,
+     "lo": 9.6820135,
+     "cat": "sight",
+     "status": "plain",
+     "note": "€2.50, card or cash, open to 19:30. Narrow stone stairs to the tower and the best 360° view in the region. Then the breakwater below with a gelato — waves routinely crash over it.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "5f-5g",
+     "mode": "walk",
+     "summary": "Trail 592-3, card required, 3.2 km",
+     "duration": "1 h 30",
+     "verified": "2026-09-13",
+     "source": "parconazionale5terre.it via italy-2026.html",
+     "steps": [
+      "Card checkpoint at the Vernazza trailhead.",
+      "Demanding but easier than the last leg; max altitude about 250 m. Open in both directions.",
+      "Finishes with the Lardarina staircase up into Corniglia.",
+      "Decision point at the start: if legs are gone, the train from Vernazza takes you straight home to Levanto."
+     ],
+     "distance": "3.2 km"
+    },
+    {
+     "kind": "stop",
+     "id": "5g",
+     "t": "17:45",
+     "name": "Corniglia — Enoteca il Pirùn",
+     "la": 44.1199972,
+     "lo": 9.7086776,
+     "cat": "food",
+     "status": "plain",
+     "note": "Via Fieschi 115. Aperitivo and a glass of Sciacchetrà, the raisin-dried dessert wine, about 18%, worth it once. Open to 22:00. Basil-honey gelato at Alberto on Via Fieschi, cash only.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "5g-5h",
+     "mode": "bus",
+     "summary": "Park shuttle, included with the card",
+     "duration": "10 min",
+     "verified": "2026-09-13",
+     "source": "Cinque Terre card terms via italy-2026.html",
+     "steps": [
+      "The green park shuttle runs between Corniglia village and the station below. Your Trekking card covers it.",
+      "Or walk the ~380 Lardarina steps down — 15 minutes."
+     ],
+     "operator": "Parco Nazionale shuttle",
+     "cost": "included with the card"
+    },
+    {
+     "kind": "stop",
+     "id": "5h",
+     "t": "18:45",
+     "name": "Corniglia station",
+     "la": 44.118622,
+     "lo": 9.7164111,
+     "cat": "move",
+     "status": "plain",
+     "note": "Below the village. Either the ~380 Lardarina steps down or the green park shuttle bus, which your card covers. Sunset is 19:20 — you'll be off the trail in daylight.",
+     "directions": "r"
+    },
+    {
+     "kind": "leg",
+     "id": "5h-5i",
+     "mode": "train",
+     "summary": "Regional to Levanto, buy a single",
+     "duration": "14 min",
+     "verified": "2026-09-13",
+     "source": "Trenitalia via italy-2026.html",
+     "steps": [
+      "Buy a single at the machine — the Trekking card does not include trains. Paper: stamp it. App: don't.",
+      "Direction Levanto / Genova. Trains roughly every 15–30 minutes.",
+      "Get off at Levanto, then walk ten minutes into the old town for dinner. The hotel shuttle comes later."
+     ],
+     "operator": "Trenitalia regionale",
+     "cost": "single; confirm at the machine",
+     "validate": "Paper: stamp before boarding. App: do not.",
+     "buy": "Station machine or Trenitalia app"
+    },
+    {
+     "kind": "stop",
+     "id": "5i",
+     "t": "19:30",
+     "name": "Osteria Tumelin, Levanto",
+     "la": 44.1675464,
+     "lo": 9.6119505,
+     "cat": "food",
+     "status": "plain",
+     "note": "Via Domenico Grillo 32, in the 15th-century Casa del Capitano. Seafood, classic Ligurian, dishes plated at the table. Open Sunday 19:00–22:00. Booked at check-in Saturday. Antica Trattoria Centro is the alternative.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "5i-5j",
+     "mode": "shuttle",
+     "summary": "22:00 or 23:00 up, booked",
+     "duration": "10 min",
+     "verified": "2026-09-13",
+     "source": "Hotel Al Terra di Mare (Dario), via italy-2026.html",
+     "steps": [
+      "Booked at check-in. Pickup at the Levanto stop the driver named on Saturday.",
+      "Second included ride of the day."
+     ],
+     "operator": "Hotel Al Terra di Mare",
+     "cost": "included"
+    },
+    {
+     "kind": "stop",
+     "id": "5j",
+     "t": "22:15",
+     "name": "Hotel Al Terra di Mare",
+     "la": 44.1775807,
+     "lo": 9.6324838,
+     "cat": "stay",
+     "status": "plain",
+     "note": "The 22:00 or 23:00 uphill shuttle, whichever you booked.",
+     "directions": "w"
+    }
+   ]
+  },
+  {
+   "n": 6,
+   "iso": "2026-09-21",
+   "date": "Mon 21 Sep",
+   "title": "Coast to Florence",
+   "place": "Levanto to Florence",
+   "items": [
+    {
+     "kind": "stop",
+     "id": "6a",
+     "t": "08:00",
+     "name": "Hotel Al Terra di Mare",
+     "la": 44.1775807,
+     "lo": 9.6324838,
+     "cat": "stay",
+     "status": "plain",
+     "note": "Breakfast at 08:00, leave at 08:30 with bags. Dario confirmed this works for the 10:17.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "6a-6b",
+     "mode": "shuttle",
+     "summary": "08:35 down to the station",
+     "duration": "10 min",
+     "verified": "2026-09-13",
+     "source": "Hotel Al Terra di Mare (Dario), via italy-2026.html",
+     "steps": [
+      "Booked at check-in. Ask for the station.",
+      "Included ride."
+     ],
+     "operator": "Hotel Al Terra di Mare",
+     "depart": "08:35",
+     "cost": "included"
+    },
+    {
+     "kind": "stop",
+     "id": "6b",
+     "t": "08:45",
+     "name": "Levanto station",
+     "la": 44.1740824,
+     "lo": 9.6158222,
+     "cat": "move",
+     "status": "plain",
+     "note": "Tickets to La Spezia bought Saturday. Trains every 15–30 minutes; take the 09:15 or the first after.",
+     "directions": "r"
+    },
+    {
+     "kind": "leg",
+     "id": "6b-6c",
+     "mode": "train",
+     "summary": "Regional to La Spezia, tickets bought Sat",
+     "duration": "20 min",
+     "verified": "2026-09-13",
+     "source": "Trenitalia via italy-2026.html",
+     "steps": [
+      "Tickets bought Saturday. Paper: stamp before boarding. App: do not.",
+      "Direction La Spezia. Take the 09:15 or the first train after it; there's slack before the 10:17."
+     ],
+     "operator": "Trenitalia regionale",
+     "validate": "Paper: stamp before boarding. App: do not."
+    },
+    {
+     "kind": "stop",
+     "id": "6c",
+     "t": "09:40",
+     "name": "La Spezia Centrale",
+     "la": 44.1113532,
+     "lo": 9.8134318,
+     "cat": "move",
+     "status": "set",
+     "note": "Intercity 505 to Pisa departs 10:17. Twenty minutes is plenty here; it's a small station.",
+     "directions": "r",
+     "window": {
+      "from": "09:40",
+      "to": "10:17"
+     },
+     "hasSecret": true,
+     "alert": "Strike check, 13 Sep: the 21 Sep rail action is Emilia-Romagna only (Bologna, Reggio Emilia, Rimini), 09:01–17:00. Your route doesn't touch it; knock-on delays possible. Re-check scioperi.mit.gov.it the night before."
+    },
+    {
+     "kind": "leg",
+     "id": "6c-6d",
+     "mode": "train",
+     "summary": "Intercity 505, coach 7",
+     "duration": "54 min",
+     "verified": "2026-09-13",
+     "source": "Trenitalia PNR email; italy-2026.html",
+     "steps": [
+      "Board coach 7. Seats assigned — see the locked reference.",
+      "Do not stamp: reserved seat.",
+      "Deep-discount fare, no changes, no refunds."
+     ],
+     "operator": "Trenitalia",
+     "line": "Intercity 505",
+     "depart": "10:17",
+     "arrive": "11:11",
+     "validate": "No — reserved seat.",
+     "hasSecret": true
+    },
+    {
+     "kind": "stop",
+     "id": "6d",
+     "t": "11:11",
+     "name": "Pisa Centrale",
+     "la": 43.7084616,
+     "lo": 10.3984678,
+     "cat": "move",
+     "status": "flag",
+     "note": "Nineteen minutes to change. Regionale Veloce 4030 to Firenze departs 11:30. Platform announcements here are unreliable and changes are common — trust the Trenitalia app and the boards, not the printed platform.",
+     "directions": "r",
+     "window": {
+      "from": "11:11",
+      "to": "11:30"
+     },
+     "hasSecret": true,
+     "alert": "If IC 505 runs late: regionals Pisa → Firenze go about every 30 minutes and an ordinary regional fare is valid on any of them. Don't panic-buy."
+    },
+    {
+     "kind": "leg",
+     "id": "6d-6e",
+     "mode": "train",
+     "summary": "Regionale Veloce 4030, free seating",
+     "duration": "1 h 03",
+     "verified": "2026-09-13",
+     "source": "Trenitalia ticket email; italy-2026.html",
+     "steps": [
+      "Free seating — sit anywhere.",
+      "Walk the ticket through the green validator at Pisa Centrale anyway. Three seconds, zero downside, removes any argument with a conductor.",
+      "Check the departure board and the Trenitalia app for the platform; Pisa changes them often.",
+      "Fallback if you miss it: any regional Pisa → Firenze, roughly every 30 minutes, on an ordinary regional fare."
+     ],
+     "operator": "Trenitalia",
+     "line": "Regionale Veloce 4030",
+     "depart": "11:30",
+     "arrive": "12:33",
+     "validate": "Yes — stamp it at Pisa, even though it names the train.",
+     "hasSecret": true,
+     "fallback": "Regionals Pisa → Firenze every ~30 min; a regional fare is valid on any."
+    },
+    {
+     "kind": "stop",
+     "id": "6e",
+     "t": "12:33",
+     "name": "Firenze Santa Maria Novella",
+     "la": 43.7766715,
+     "lo": 11.2479159,
+     "cat": "move",
+     "status": "plain",
+     "note": "Dead-end terminus, short flat walk out. Everything from here is on foot — the hotel is four minutes.",
+     "directions": "r"
+    },
+    {
+     "kind": "leg",
+     "id": "6e-6f",
+     "mode": "walk",
+     "summary": "800 m",
+     "duration": "4 min",
+     "distance": "800 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Follow the Directions button; it opens walking directions from where you stand."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "6f",
+     "t": "12:50",
+     "name": "Hotel Perseo",
+     "la": 43.7734047,
+     "lo": 11.2536114,
+     "cat": "stay",
+     "status": "set",
+     "note": "Via de' Cerretani. Superior room, breakfast buffet, two nights. Four minutes from the station and from the Duomo. Staff will make dinner bookings if you ask.",
+     "directions": "w",
+     "alert": "Leave the daypack here after lunch. No bags of any kind on the dome climb — carry phone, wallet, passports, a small water bottle."
+    },
+    {
+     "kind": "leg",
+     "id": "6f-6g",
+     "mode": "walk",
+     "summary": "550 m",
+     "duration": "4 min",
+     "distance": "550 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Follow the Directions button; it opens walking directions from where you stand."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "6g",
+     "t": "13:15",
+     "name": "Il Trippaio del Porcellino",
+     "la": 43.7698579,
+     "lo": 11.2540422,
+     "cat": "food",
+     "status": "plain",
+     "note": "Piazza del Mercato Nuovo, four minutes away. Lampredotto — tripe sandwich, €4–5, standing, with a plastic cup of red. Or All'Antico Vinaio on Via dei Neri if you'd rather queue for a focaccia.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "6g-6h",
+     "mode": "walk",
+     "summary": "900 m",
+     "duration": "8 min",
+     "distance": "900 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Follow the Directions button; it opens walking directions from where you stand."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "6h",
+     "t": "13:50",
+     "name": "Santa Maria Novella",
+     "la": 43.7746346,
+     "lo": 11.2493859,
+     "cat": "sight",
+     "status": "plain",
+     "note": "€5–7.50 at the door, no booking. Open Monday to 17:30, last entry 16:30. Masaccio's Trinity — the first painting to use true perspective. Ticket includes the Green Cloister and Spanish Chapel. About 75 minutes.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "6h-6i",
+     "mode": "walk",
+     "summary": "750 m",
+     "duration": "9 min",
+     "distance": "750 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Nine minutes east. Bag-shaped items go to the free deposit at Piazza Duomo 38/r first — look for the Opera del Duomo storage sign."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "6i",
+     "t": "15:45",
+     "name": "Brunelleschi's Dome",
+     "la": 43.773145,
+     "lo": 11.2559602,
+     "cat": "sight",
+     "status": "set",
+     "note": "Enter at the Porta della Mandorla on the cathedral's north flank, any time in the 15:45–16:30 window — aim for the front of it. 463 steps, no elevator, about 45 minutes, between the two shells. Passport checked against the name on the pass.",
+     "directions": "w",
+     "window": {
+      "from": "15:45",
+      "to": "16:30"
+     },
+     "hasSecret": true,
+     "alert": "Nominative, non-refundable, cannot be rescheduled. Arrive after 16:30 and the pass is gone. No bags: free deposit at Piazza Duomo 38/r if you didn't leave them at the hotel."
+    },
+    {
+     "kind": "leg",
+     "id": "6i-6j",
+     "mode": "walk",
+     "summary": "250 m",
+     "duration": "2 min",
+     "distance": "250 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Follow the Directions button; it opens walking directions from where you stand."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "6j",
+     "t": "16:45",
+     "name": "Museo dell'Opera del Duomo",
+     "la": 43.7731706,
+     "lo": 11.258112,
+     "cat": "sight",
+     "status": "plain",
+     "note": "In the pass, walk in. Ghiberti's original Gates of Paradise, Donatello's Magdalene, Michelangelo's Bandini Pietà. Rick rates it above the cathedral. 60–75 minutes.",
+     "directions": "w",
+     "alert": "The plan says open to 19:00. Google's listing shows Monday closing at 18:00. Confirm on the Opera del Duomo site; if 18:00 is right, go straight here from the dome and give it the full hour."
+    },
+    {
+     "kind": "leg",
+     "id": "6j-6k",
+     "mode": "walk",
+     "summary": "350 m",
+     "duration": "2 min",
+     "distance": "350 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Follow the Directions button; it opens walking directions from where you stand."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "6k",
+     "t": "18:10",
+     "name": "Baptistery",
+     "la": 43.7731154,
+     "lo": 11.2550232,
+     "cat": "sight",
+     "status": "plain",
+     "note": "In the pass. Five minutes: the ceiling mosaics are under scaffolding and won't be visible for years. The doors outside are copies. Open to 19:30.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "6k-6l",
+     "mode": "walk",
+     "summary": "550 m",
+     "duration": "5 min",
+     "distance": "550 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Follow the Directions button; it opens walking directions from where you stand."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "6l",
+     "t": "18:30",
+     "name": "Renaissance walk",
+     "la": 43.7696,
+     "lo": 11.2558,
+     "cat": "sight",
+     "status": "plain",
+     "note": "Rick's free audio tour, which he prescribes for the cool of evening: Duomo → Orsanmichele → Piazza della Signoria → Ponte Vecchio. About an hour.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "6l-6m",
+     "mode": "walk",
+     "summary": "1.2 km",
+     "duration": "20 min",
+     "distance": "1.2 km",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Twenty minutes east from Ponte Vecchio toward the Sant'Ambrogio market. Or bus C2."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "6m",
+     "t": "21:00",
+     "name": "Trattoria Cibrèo",
+     "la": 43.7712781,
+     "lo": 11.2664995,
+     "cat": "food",
+     "status": "set",
+     "note": "Il Cibreino, Sant'Ambrogio market district. Booked 21:00. No printed menu — the server tells you what came from the market that morning. Michelin Bib Gourmand. Kitchen closes 22:30.",
+     "directions": "w"
+    }
+   ]
+  },
+  {
+   "n": 7,
+   "iso": "2026-09-22",
+   "date": "Tue 22 Sep",
+   "title": "Uffizi and David",
+   "place": "Florence",
+   "items": [
+    {
+     "kind": "stop",
+     "id": "7a",
+     "t": "09:15",
+     "name": "Uffizi",
+     "la": 43.7677856,
+     "lo": 11.2553108,
+     "cat": "sight",
+     "status": "set",
+     "note": "Booked 09:15, €29 each, tickets.uffizi.it. Arrive 09:00 with the QR on both phones and find the 'Ingresso con prenotazione' line — nothing to collect. Rick's audio tour, about 2½ hours.",
+     "directions": "w",
+     "window": {
+      "from": "09:00",
+      "to": "09:15"
+     },
+     "hasSecret": true,
+     "alert": "Leave by 12:00, not 12:15. San Marco is a 17-minute walk and its last entry is 12:45 — the plan's timestamps don't add up otherwise."
+    },
+    {
+     "kind": "leg",
+     "id": "7a-7b",
+     "mode": "walk",
+     "summary": "1.7 km",
+     "duration": "17 min",
+     "distance": "1.7 km",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Seventeen minutes north up Via Ricasoli. The only long walk of the day."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "7b",
+     "t": "12:30",
+     "name": "Museo di San Marco",
+     "la": 43.7784943,
+     "lo": 11.259431,
+     "cat": "sight",
+     "status": "flag",
+     "note": "€11, no booking. Fra Angelico frescoed a painting into every monk's cell; the Annunciation is at the top of the stairs. Tuesday is your only chance — closed Mondays.",
+     "directions": "w",
+     "alert": "Last entry 12:45, closes 13:50 (confirmed on Google's listing). Arriving at 12:30 gives you a 15-minute margin, not 40. This is the day's one hard door."
+    },
+    {
+     "kind": "leg",
+     "id": "7b-7c",
+     "mode": "walk",
+     "summary": "600 m",
+     "duration": "5 min",
+     "distance": "600 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Follow the Directions button; it opens walking directions from where you stand."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "7c",
+     "t": "13:20",
+     "name": "Trattoria Mario",
+     "la": 43.7765605,
+     "lo": 11.2545811,
+     "cat": "food",
+     "status": "plain",
+     "note": "Via Rosina 2r, by Mercato Centrale. No reservations, lunch only 12:00–15:00, closed Sunday. Their crush is 12:00–13:00; at 13:20 you'll likely walk into a table. Best-value bistecca in the city. Nerbone inside the market is the backup.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "7c-7d",
+     "mode": "walk",
+     "summary": "250 m",
+     "duration": "3 min",
+     "distance": "250 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Follow the Directions button; it opens walking directions from where you stand."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "7d",
+     "t": "14:45",
+     "name": "Medici Chapels",
+     "la": 43.7750913,
+     "lo": 11.2533903,
+     "cat": "sight",
+     "status": "plain",
+     "note": "€11, three minutes from your table, open to 18:50. Michelangelo's New Sacristy — Dawn, Dusk, Night and Day across the tombs. 45 minutes. This is what the 15:45 Accademia slot bought you.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "7d-7e",
+     "mode": "walk",
+     "summary": "650 m",
+     "duration": "8 min",
+     "distance": "650 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Follow the Directions button; it opens walking directions from where you stand."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "7e",
+     "t": "15:45",
+     "name": "Accademia — David",
+     "la": 43.7768145,
+     "lo": 11.2586424,
+     "cat": "sight",
+     "status": "set",
+     "note": "Booked 15:45, €20 each, b-ticket.com. About an hour; Rick's free 40-minute audio is the right length for a one-masterpiece museum. Skip any paid upgrade.",
+     "directions": "w",
+     "window": {
+      "from": "15:30",
+      "to": "15:45"
+     },
+     "hasSecret": true
+    },
+    {
+     "kind": "leg",
+     "id": "7e-7f",
+     "mode": "walk",
+     "summary": "1.0 km",
+     "duration": "12 min",
+     "distance": "1.0 km",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "A straight shot south down Via del Proconsolo."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "7f",
+     "t": "17:00",
+     "name": "Bargello",
+     "la": 43.7703981,
+     "lo": 11.2580078,
+     "cat": "sight",
+     "status": "plain",
+     "note": "€12, or €26 as a 48-hour combo with the Accademia. Open Tuesday 08:15–18:50, last entry 18:00 — the 2026 hours change that makes this day possible. Donatello's bronze David, Michelangelo's Bacchus, the competition panels.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "7f-7g",
+     "mode": "bus",
+     "summary": "Bus 12 or 13, validate on board",
+     "duration": "20 min",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Autolinee Toscane bus 12 or 13 from a stop near Ponte alle Grazie; both climb to Piazzale Michelangelo.",
+      "Buy a single before boarding — at bus app or a tabacchi — and validate on the reader. Confirm the fare at purchase.",
+      "Or walk: 25 minutes across Ponte alle Grazie and up the ramps."
+     ],
+     "operator": "Autolinee Toscane",
+     "line": "12 or 13",
+     "buy": "at bus app or tabacchi",
+     "validate": "Validate on the reader when boarding."
+    },
+    {
+     "kind": "stop",
+     "id": "7g",
+     "t": "19:00",
+     "name": "Piazzale Michelangelo",
+     "la": 43.7629314,
+     "lo": 11.2650561,
+     "cat": "sight",
+     "status": "plain",
+     "note": "Sunset about 19:20. If you're moving well, San Miniato al Monte is fifteen minutes further up: free, an extraordinary Romanesque interior, the same view plus quiet. If not, the Piazzale view is the same view.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "7g-7h",
+     "mode": "walk",
+     "summary": "1.7 km",
+     "duration": "25 min",
+     "distance": "1.7 km",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Down the ramps and west along the river into the Oltrarno. About 25 minutes.",
+      "Piazza della Passera is small and easy to miss — Directions will get you to the door."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "7h",
+     "t": "20:30",
+     "name": "Trattoria 4 Leoni",
+     "la": 43.7670672,
+     "lo": 11.2505002,
+     "cat": "food",
+     "status": "set",
+     "note": "Booked 20:30, table for two, outdoor, Piazza della Passera in the Oltrarno. The pear fiocchetti is what people come for.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "7h-7i",
+     "mode": "walk",
+     "summary": "450 m",
+     "duration": "5 min",
+     "distance": "450 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Follow the Directions button; it opens walking directions from where you stand."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "7i",
+     "t": "22:00",
+     "name": "Babae wine window",
+     "la": 43.7687903,
+     "lo": 11.2473846,
+     "cat": "food",
+     "status": "plain",
+     "note": "Via Santo Spirito 21r. A glass of Chianti through a 16th-century plague hatch, about €5. Open to midnight.",
+     "directions": "w"
+    }
+   ]
+  },
+  {
+   "n": 8,
+   "iso": "2026-09-23",
+   "date": "Wed 23 Sep",
+   "title": "Into Venice",
+   "place": "Florence to Venice",
+   "items": [
+    {
+     "kind": "stop",
+     "id": "8a",
+     "t": "07:45",
+     "name": "Hotel Perseo",
+     "la": 43.7734047,
+     "lo": 11.2536114,
+     "cat": "stay",
+     "status": "plain",
+     "note": "Leave at 07:45. Four minutes to the station puts you at the boards by 07:50.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "8a-8b",
+     "mode": "walk",
+     "summary": "800 m",
+     "duration": "4 min",
+     "distance": "800 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Follow the Directions button; it opens walking directions from where you stand."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "8b",
+     "t": "08:00",
+     "name": "Firenze Santa Maria Novella",
+     "la": 43.7766715,
+     "lo": 11.2479159,
+     "cat": "move",
+     "status": "set",
+     "note": "Frecciarossa 9404 departs 08:20, arrives Venezia Santa Lucia 10:34. Staffed gates; platform access opens 40 minutes before. Watch for train number 9404.",
+     "directions": "r",
+     "window": {
+      "from": "07:50",
+      "to": "08:20"
+     },
+     "hasSecret": true
+    },
+    {
+     "kind": "leg",
+     "id": "8b-8c",
+     "mode": "train",
+     "summary": "Frecciarossa 9404, coach 6",
+     "duration": "2 h 14",
+     "verified": "2026-09-13",
+     "source": "Trenitalia PNR email; italy-2026.html",
+     "steps": [
+      "Board coach 6. Seats assigned — see the locked reference.",
+      "Do not stamp: reserved seat.",
+      "Deep-discount fare, no changes, no refunds.",
+      "This departure sits inside the 06:00–09:00 guaranteed-service window, so it's protected even on a strike day."
+     ],
+     "operator": "Trenitalia",
+     "line": "Frecciarossa 9404",
+     "depart": "08:20",
+     "arrive": "10:34",
+     "validate": "No — reserved seat.",
+     "hasSecret": true
+    },
+    {
+     "kind": "stop",
+     "id": "8c",
+     "t": "10:34",
+     "name": "Venezia Santa Lucia",
+     "la": 45.4409483,
+     "lo": 12.3211527,
+     "cat": "move",
+     "status": "plain",
+     "note": "The station steps open straight onto the Grand Canal. No cars, no taxis; wheeled bags don't roll over bridges. The Ferrovia vaporetto stop is directly out the front doors.",
+     "directions": "r"
+    },
+    {
+     "kind": "leg",
+     "id": "8c-8d",
+     "mode": "vaporetto",
+     "summary": "Line 1, €9.50, get off at Accademia",
+     "duration": "35 min",
+     "verified": "2026-09-13",
+     "source": "ACTV 2026 fares via visit.venice.it; italy-2026.html",
+     "steps": [
+      "Ferrovia stop is straight out the station doors. Buy two singles at the ACTV machine or kiosk: €9.50 each, valid 75 minutes.",
+      "Validate at the yellow reader before boarding — inspectors check; the fine is €50 plus the fare.",
+      "Take line 1, not line 2. Line 1 stops everywhere and is the sight. Rick's free Grand Canal Cruise audio is timed to it — sit at the bow.",
+      "Get off at Accademia. Palazzo Guardi is 3–5 minutes on foot.",
+      "Singles, not a pass: about four rides in two days (€38) vs a €35 48-hour pass — a wash, and singles stay flexible."
+     ],
+     "operator": "ACTV",
+     "line": "1",
+     "cost": "€9.50 each, valid 75 min",
+     "buy": "ACTV machine or kiosk at Ferrovia",
+     "validate": "Yes — tap at the yellow reader before boarding."
+    },
+    {
+     "kind": "stop",
+     "id": "8d",
+     "t": "11:45",
+     "name": "Palazzo Guardi",
+     "la": 45.4309439,
+     "lo": 12.3268217,
+     "cat": "stay",
+     "status": "set",
+     "note": "Dorsoduro, 3–5 minutes from the Accademia stop, Calle del Pistor. Quadruple room, canal view, two nights, non-refundable. Hotel tourist tax about €4–4.50 per person per night, cash, at checkout — not in the Tripmasters rate.",
+     "directions": "w",
+     "alert": "Guests warn it's hard to find first time. Follow Directions to the door rather than the yellow wall signs."
+    },
+    {
+     "kind": "leg",
+     "id": "8d-8e",
+     "mode": "walk",
+     "summary": "0 m",
+     "duration": "5 min",
+     "distance": "0 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Follow the Directions button; it opens walking directions from where you stand."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "8e",
+     "t": "12:15",
+     "name": "Cantine del Vino già Schiavi",
+     "la": 45.4309335,
+     "lo": 12.3267112,
+     "cat": "food",
+     "status": "plain",
+     "note": "Fondamenta Nani 992, at Ponte San Trovaso. The best cicchetti bar in Dorsoduro. Say 'fuori' to stand outside on the canal wall with plastic cups. Cash, no reservations, no toilet. Open 08:30–14:00 and 16:00–20:30; closed Sunday.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "8e-8f",
+     "mode": "walk",
+     "summary": "150 m",
+     "duration": "3 min",
+     "distance": "150 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Follow the Directions button; it opens walking directions from where you stand."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "8f",
+     "t": "13:30",
+     "name": "Gallerie dell'Accademia",
+     "la": 45.4310784,
+     "lo": 12.3281394,
+     "cat": "sight",
+     "status": "plain",
+     "note": "€16, three minutes away, open to 19:00 Wednesday. Giorgione's Tempest, Veronese's Feast in the House of Levi. About 90 minutes.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "8f-8g",
+     "mode": "walk",
+     "summary": "700 m",
+     "duration": "12 min",
+     "distance": "700 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "East along the Zattere toward the Salute. Twelve minutes."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "8g",
+     "t": "15:30",
+     "name": "Santa Maria della Salute",
+     "la": 45.430675,
+     "lo": 12.3347626,
+     "cat": "sight",
+     "status": "plain",
+     "note": "Free. Titians in the sacristy. Afternoon opening is 15:00–17:30, so 15:30 is right.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "8g-8h",
+     "mode": "walk",
+     "summary": "200 m",
+     "duration": "3 min",
+     "distance": "200 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Follow the Directions button; it opens walking directions from where you stand."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "8h",
+     "t": "16:00",
+     "name": "Punta della Dogana",
+     "la": 45.4309476,
+     "lo": 12.3368328,
+     "cat": "sight",
+     "status": "plain",
+     "note": "The tip of Dorsoduro where the Grand Canal meets the Giudecca — the best free view in Venice. The Pinault museum inside is separate and paid; you're here for the point.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "8h-8i",
+     "mode": "walk",
+     "summary": "500 m",
+     "duration": "20 min",
+     "distance": "500 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "No bridge here — walk back west to the Accademia bridge, cross, then east through San Marco. About 20 minutes.",
+      "Or the traghetto from Salute to San Marco if it's running: €2, standing, two minutes."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "8i",
+     "t": "17:00",
+     "name": "Piazza San Marco",
+     "la": 45.4341668,
+     "lo": 12.3384717,
+     "cat": "sight",
+     "status": "plain",
+     "note": "Rick's free St Mark's Square audio tour. The Campanile lift is €15 if you want the view. Basilica and Doge's Palace are tomorrow.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "8i-8j",
+     "mode": "walk",
+     "summary": "800 m",
+     "duration": "20 min",
+     "distance": "800 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Back over the Accademia bridge and east along the Zattere to the Punta della Dogana. About 20 minutes."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "8j",
+     "t": "19:00",
+     "name": "Ristorante Lineadombra",
+     "la": 45.4294889,
+     "lo": 12.3346972,
+     "cat": "food",
+     "status": "set",
+     "note": "Booked 19:00. Rick's top Dorsoduro listing — a terrace suspended over the water at the Punta della Dogana, looking at the Giudecca. Seafood-forward. Kitchen closes 21:30, so this is an early sitting.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "8j-8k",
+     "mode": "walk",
+     "summary": "800 m",
+     "duration": "20 min",
+     "distance": "800 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Follow the Directions button; it opens walking directions from where you stand."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "8k",
+     "t": "21:30",
+     "name": "Piazza San Marco after dark",
+     "la": 45.4341668,
+     "lo": 12.3384717,
+     "cat": "sight",
+     "status": "plain",
+     "note": "The duelling café orchestras. Stand at the edge and listen for free; a table at Florian is €15–20 a drink plus a music surcharge. Home over the Accademia bridge, empty and lit.",
+     "directions": "w"
+    }
+   ]
+  },
+  {
+   "n": 9,
+   "iso": "2026-09-24",
+   "date": "Thu 24 Sep",
+   "title": "San Marco, the Secret Itineraries and the gondola",
+   "place": "Venice",
+   "items": [
+    {
+     "kind": "stop",
+     "id": "9a",
+     "t": "08:00",
+     "name": "Palazzo Guardi",
+     "la": 45.4309439,
+     "lo": 12.3268217,
+     "cat": "stay",
+     "status": "plain",
+     "note": "Bags: St Mark's admits none, and the Doge's Palace has lockers. Leave the daypack here or plan the Ateneo San Basso deposit into the afternoon.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "9a-9b",
+     "mode": "vaporetto",
+     "summary": "Line 1 to Rialto Mercato, €9.50",
+     "duration": "20 min",
+     "verified": "2026-09-13",
+     "source": "ACTV 2026 fares via visit.venice.it; italy-2026.html",
+     "steps": [
+      "From the Accademia stop take line 1 toward Ferrovia. Get off at Rialto Mercato — the stop after Rialto.",
+      "Single €9.50, valid 75 minutes. Validate at the yellow reader.",
+      "Or walk: 20 minutes over the Accademia bridge and through San Polo."
+     ],
+     "operator": "ACTV",
+     "line": "1",
+     "cost": "€9.50 each, valid 75 min",
+     "validate": "Yes — tap before boarding."
+    },
+    {
+     "kind": "stop",
+     "id": "9b",
+     "t": "08:30",
+     "name": "Rialto Market",
+     "la": 45.4396574,
+     "lo": 12.3337524,
+     "cat": "sight",
+     "status": "plain",
+     "note": "The Pescheria fish market runs Tuesday–Saturday, about 07:30–12:00; vendors pack up around 11:00. Thursday works. This is what feeds the bacari next door.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "9b-9c",
+     "mode": "walk",
+     "summary": "100 m",
+     "duration": "1 min",
+     "distance": "100 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Follow the Directions button; it opens walking directions from where you stand."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "9c",
+     "t": "09:15",
+     "name": "All'Arco",
+     "la": 45.438892,
+     "lo": 12.3340577,
+     "cat": "food",
+     "status": "plain",
+     "note": "San Polo 436, one minute off the market. Everything bought that morning from next door. Baccalà mantecato crostino, sarde in saor. Open 10:00–14:30 per the listing — if the door's shut at 09:15, browse the market and come back.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "9c-9d",
+     "mode": "walk",
+     "summary": "250 m",
+     "duration": "5 min",
+     "distance": "250 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Cross the Grand Canal by traghetto from the Pescheria side to Campo Santa Sofia, or walk to the Rialto bridge."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "9d",
+     "t": "09:50",
+     "name": "Traghetto at Santa Sofia",
+     "la": 45.4404,
+     "lo": 12.3346244,
+     "cat": "move",
+     "status": "plain",
+     "note": "Optional. €2 to cross the Grand Canal standing in a real gondola rowed by two gondoliers. The cheapest gondola ride in Venice by a factor of forty-five. Runs 07:30–19:00.",
+     "directions": "r"
+    },
+    {
+     "kind": "leg",
+     "id": "9d-9e",
+     "mode": "walk",
+     "summary": "Follow the yellow per San Marco signs",
+     "duration": "20 min",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "From Campo Santa Sofia walk south to the Rialto bridge, cross, and follow the yellow 'per San Marco' signs through the Mercerie.",
+      "Twenty minutes. Trust the wall signs over the blue dot — GPS wanders between the buildings.",
+      "You need to be at the Doge's Palace by 11:10. Leave Cannaregio by 10:40."
+     ],
+     "distance": "about 1.4 km"
+    },
+    {
+     "kind": "stop",
+     "id": "9e",
+     "t": "11:10",
+     "name": "Doge's Palace — Secret Itineraries",
+     "la": 45.4337035,
+     "lo": 12.3403894,
+     "cat": "sight",
+     "status": "set",
+     "note": "Booked, 11:30 English, 75 minutes, max 25 people. €80 for two, and it includes unguided entry to the Doge's Palace, Museo Correr, the Archaeological Museum and the Marciana Library — buy nothing else. Afterwards self-guided: Bridge of Sighs, the Great Council Hall.",
+     "directions": "w",
+     "window": {
+      "from": "11:10",
+      "to": "11:30"
+     },
+     "alert": "Arrive 20 minutes early. More than 15 minutes late and they refuse you, no refund. Narrow stairs and low attic passages; not wheelchair accessible."
+    },
+    {
+     "kind": "leg",
+     "id": "9e-9f",
+     "mode": "walk",
+     "summary": "150 m",
+     "duration": "2 min",
+     "distance": "150 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Next door, on the piazzetta side. Drop bags at Ateneo San Basso first — north side of the basilica, Piazzetta dei Leoncini."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "9f",
+     "t": "14:30",
+     "name": "St Mark's Basilica",
+     "la": 45.4345606,
+     "lo": 12.3397125,
+     "cat": "sight",
+     "status": "set",
+     "note": "Complete Experience, 2 adults, €60: Pala d'Oro and the Loggia dei Cavalli — the four original bronze horses and the terrace over the Piazza. Entry window 14:30–15:00. By early afternoon the floodlights are on and 8,000 m² of gold ignites.",
+     "directions": "w",
+     "window": {
+      "from": "14:30",
+      "to": "15:00"
+     },
+     "alert": "No bags: free storage at Ateneo San Basso, Piazzetta dei Leoncini, north side — allow 15 minutes. Shoulders and knees covered on both of you; they turn away ticket-holders. Save the PDFs from Order History before you fly."
+    },
+    {
+     "kind": "leg",
+     "id": "9f-9g",
+     "mode": "walk",
+     "summary": "To San Polo, about 1.5 km",
+     "duration": "20 min",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "West through San Marco to the Rialto bridge or the Accademia bridge, then into San Polo. About 20 minutes either way.",
+      "Or vaporetto 1 or 2 from San Marco to San Tomà, then five minutes on foot."
+     ],
+     "distance": "about 1.5 km"
+    },
+    {
+     "kind": "stop",
+     "id": "9g",
+     "t": "16:00",
+     "name": "Scuola Grande di San Rocco",
+     "la": 45.4366549,
+     "lo": 12.3254746,
+     "cat": "sight",
+     "status": "plain",
+     "note": "€12, cash, on-site sales only, last tickets 17:00. Sixty-odd Tintoretto canvases — Tintoretto's Sistine Chapel. Take a mirror from the door for the ceilings.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "9g-9h",
+     "mode": "walk",
+     "summary": "150 m",
+     "duration": "2 min",
+     "distance": "150 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Follow the Directions button; it opens walking directions from where you stand."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "9h",
+     "t": "17:15",
+     "name": "Frari",
+     "la": 45.4369864,
+     "lo": 12.3266004,
+     "cat": "sight",
+     "status": "plain",
+     "note": "€5, two minutes from San Rocco. Titian's Assumption over the altar, and his tomb. Rick has a free audio tour. Listing shows open to 19:30; the plan says 18:00 — either way you're in time.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "9h-9i",
+     "mode": "walk",
+     "summary": "850 m",
+     "duration": "15 min",
+     "distance": "850 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Fifteen minutes south through San Polo into Dorsoduro to the gondola stands on the Rio di San Trovaso, near the squero."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "9i",
+     "t": "18:15",
+     "name": "Gondola — Rio di San Trovaso",
+     "la": 45.4312,
+     "lo": 12.3262,
+     "cat": "sight",
+     "status": "set",
+     "note": "The plan, not optional. €90 for 30 minutes at the daytime rate. Your Dorsoduro stands feed into the quiet Rio di San Trovaso — insist on the back canals, not the Grand Canal. Agree route and price before boarding.",
+     "directions": "w",
+     "alert": "Daytime pricing ends at 19:00 — after that it's €110 for 35 minutes. Be stepping in by 18:15–18:30, not still walking to a stand."
+    },
+    {
+     "kind": "leg",
+     "id": "9i-9j",
+     "mode": "vaporetto",
+     "summary": "Line 1 or 2 to Cannaregio, €9.50",
+     "duration": "25 min",
+     "verified": "2026-09-13",
+     "source": "ACTV 2026 fares via visit.venice.it; italy-2026.html",
+     "steps": [
+      "From Accademia take line 1 to Ca' d'Oro, or line 2 to San Marcuola, then walk north ten minutes to the Fondamenta della Misericordia.",
+      "Single €9.50. Validate.",
+      "Walking the whole way is about 30 minutes and crosses the Grand Canal at Rialto."
+     ],
+     "operator": "ACTV",
+     "line": "1 or 2",
+     "cost": "€9.50 each, valid 75 min",
+     "validate": "Yes — tap before boarding."
+    },
+    {
+     "kind": "stop",
+     "id": "9j",
+     "t": "19:30",
+     "name": "Cicchetti crawl, Fondamenta della Misericordia",
+     "la": 45.4440594,
+     "lo": 12.3330828,
+     "cat": "food",
+     "status": "plain",
+     "note": "Cannaregio. Vino Vero at 2497 — natural wine, open to midnight, they'll politely refuse to make an Aperol spritz. Al Timon on Fondamenta dei Ormesini — steaks and boat seating, open from 16:00 Thursday. Stand at the counter, order by pointing; pieces €1.50–4, an ombra about €1.50.",
+     "directions": "w",
+     "alert": "Cà d'Oro alla Vedova, listed in the plan for the €2 meatballs, is closed Thursdays. Drop it from tonight."
+    },
+    {
+     "kind": "leg",
+     "id": "9j-9k",
+     "mode": "walk",
+     "summary": "2.1 km",
+     "duration": "30 min",
+     "distance": "2.1 km",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Thirty minutes home: south through Cannaregio, over the Rialto or Accademia bridge, into Dorsoduro. Or line 1 from Ca' d'Oro to Accademia."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "9k",
+     "t": "late",
+     "name": "Palazzo Guardi",
+     "la": 45.4309439,
+     "lo": 12.3268217,
+     "cat": "stay",
+     "status": "plain",
+     "note": "Home over the Accademia bridge — empty, lit, and the reason people fall in love with Venice. Pack tonight; tomorrow starts at 06:40.",
+     "directions": "w"
+    }
+   ]
+  },
+  {
+   "n": 10,
+   "iso": "2026-09-25",
+   "date": "Fri 25 Sep",
+   "title": "Home",
+   "place": "Venice",
+   "items": [
+    {
+     "kind": "stop",
+     "id": "10a",
+     "t": "06:40",
+     "name": "Palazzo Guardi",
+     "la": 45.4309439,
+     "lo": 12.3268217,
+     "cat": "stay",
+     "status": "plain",
+     "note": "Leave at 06:40. Tourist tax paid in cash at checkout. Bags over bridges are slow — the plan is boat, not foot.",
+     "directions": "w"
+    },
+    {
+     "kind": "leg",
+     "id": "10a-10b",
+     "mode": "walk",
+     "summary": "400 m",
+     "duration": "5 min",
+     "distance": "400 m",
+     "verified": "2026-09-13",
+     "source": "italy-2026.html",
+     "steps": [
+      "Follow the Directions button; it opens walking directions from where you stand."
+     ]
+    },
+    {
+     "kind": "stop",
+     "id": "10b",
+     "t": "06:50",
+     "name": "Accademia vaporetto stop",
+     "la": 45.431099,
+     "lo": 12.330381,
+     "cat": "move",
+     "status": "plain",
+     "note": "Five minutes from the hotel. Lines 1 and 2 both go to Piazzale Roma; take whichever comes first.",
+     "directions": "r"
+    },
+    {
+     "kind": "leg",
+     "id": "10b-10c",
+     "mode": "vaporetto",
+     "summary": "Line 1 or 2 to Piazzale Roma, €9.50",
+     "duration": "15–20 min",
+     "verified": "2026-09-13",
+     "source": "ACTV 2026 fares via visit.venice.it; italy-2026.html",
+     "steps": [
+      "Buy a single at the Accademia machine: €9.50, valid 75 minutes. Validate.",
+      "Take line 1 or line 2 toward Piazzale Roma / Ferrovia. Both stop at Piazzale Roma; line 2 is faster.",
+      "Don't walk it with roller bags — Dorsoduro to Piazzale Roma is stepped bridges the whole way."
+     ],
+     "operator": "ACTV",
+     "line": "1 or 2",
+     "cost": "€9.50 each, valid 75 min",
+     "validate": "Yes — tap before boarding."
+    },
+    {
+     "kind": "stop",
+     "id": "10c",
+     "t": "07:20",
+     "name": "Piazzale Roma",
+     "la": 45.43767,
+     "lo": 12.31832,
+     "cat": "move",
+     "status": "plain",
+     "note": "The bus hub — the only place on the island cars and buses reach. Find the ACTV Aerobus line 5 stand (or the ATVO stand at D2); both are signed for Aeroporto.",
+     "directions": "r"
+    },
+    {
+     "kind": "leg",
+     "id": "10c-10d",
+     "mode": "bus",
+     "summary": "ACTV Aerobus 5, €10",
+     "duration": "25 min",
+     "verified": "2026-09-13",
+     "source": "ACTV and ATVO 2026 fares via visit.venice.it; italy-2026.html",
+     "steps": [
+      "ACTV Aerobus line 5 from Piazzale Roma to Aeroporto Marco Polo: €10 each, 20–25 minutes, every 15–20 minutes from about 04:30.",
+      "Or the ATVO express coach from stand D2: €12, about 20 minutes, non-stop.",
+      "Buy at the machine or ticket window in Piazzale Roma, or in the AVM Venezia app. Validate on board.",
+      "No vaporetto pass covers this leg — it always needs its own ticket.",
+      "Skip Alilaguna today: €18 and 75–90 minutes. The scenic argument doesn't apply to a 7 AM departure.",
+      "Splurge alternative: private water taxi from the nearest pier, €120–160 for two, about 30 minutes door to terminal. Pre-book."
+     ],
+     "operator": "ACTV (or ATVO)",
+     "line": "Aerobus 5",
+     "cost": "€10 each (ATVO €12)",
+     "buy": "Piazzale Roma machine, window, or AVM Venezia app",
+     "validate": "Validate on board."
+    },
+    {
+     "kind": "stop",
+     "id": "10d",
+     "t": "08:00",
+     "name": "Venice Marco Polo Airport",
+     "la": 45.5046844,
+     "lo": 12.3466295,
+     "cat": "move",
+     "status": "set",
+     "note": "UA 9058 departs 10:50 for Frankfurt, then Houston, then Birmingham at 21:59. Desks open two hours before. Be here by 08:30 at the latest.",
+     "directions": "r",
+     "hasSecret": true
+    }
+   ]
+  }
+ ],
+ "todo": [
+  {
+   "id": "t1",
+   "label": "Re-check the Cinque Terre live map",
+   "note": "mappe.parconazionale5terre.it — Monterosso–Vernazza partial closure (Ordinanza 77) and any weather alert. Again the morning of the 20th.",
+   "due": "2026-09-14"
+  },
+  {
+   "id": "t2",
+   "label": "Decide San Pietro in Vincoli",
+   "note": "Closed 12:20–15:00 Thursday. Move to 15:00 before the Capitoline, or drop it.",
+   "due": "2026-09-16"
+  },
+  {
+   "id": "t3",
+   "label": "Confirm Opera del Duomo Museum Monday hours",
+   "note": "Plan says 19:00; Google says 18:00. If 18:00, go straight there from the dome.",
+   "due": "2026-09-20"
+  },
+  {
+   "id": "t4",
+   "label": "Fix the Thursday cicchetti crawl",
+   "note": "Cà d'Oro alla Vedova is closed Thursdays. Vino Vero and Al Timon are open.",
+   "due": "2026-09-23"
+  },
+  {
+   "id": "t5",
+   "label": "Save every ticket PDF to both phones",
+   "note": "St Mark's from Order History, Borghese, Brunelleschi Pass, Uffizi, Accademia, all three Trenitalia PNRs, the park card. Trenitalia treats a lost PNR as no ticket.",
+   "due": "2026-09-15"
+  },
+  {
+   "id": "t6",
+   "label": "Buy checked baggage on united.com",
+   "note": "Not included in the fare.",
+   "due": "2026-09-14"
+  },
+  {
+   "id": "t7",
+   "label": "Download Rick Steves Audio Europe tours on Wi-Fi",
+   "note": "Rome: Heart of Rome, Colosseum, Forum, Pantheon, Trastevere, Jewish Ghetto. Vatican set. Florence: Renaissance Walk, Uffizi, Accademia, Bargello, San Marco. Venice: Grand Canal, St Mark's Square, Basilica, Frari.",
+   "due": "2026-09-15"
+  },
+  {
+   "id": "t8",
+   "label": "Pack hiking shoes with tread",
+   "note": "The park card bans open shoes and smooth soles; rangers check at trailheads.",
+   "due": "2026-09-15"
+  },
+  {
+   "id": "t9",
+   "label": "Strike check the night before each train",
+   "note": "scioperi.mit.gov.it. 21 Sep is Emilia-Romagna only as of 13 Sep.",
+   "due": "2026-09-20"
+  },
+  {
+   "id": "t10",
+   "label": "Cash for Venice",
+   "note": "Hotel tourist tax (~€16–18), San Rocco (€12 each, cash only), Schiavi, alla Vedova. Italy is card-friendly but these aren't.",
+   "due": "2026-09-22"
+  }
+ ]
 }

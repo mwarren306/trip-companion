@@ -17,7 +17,8 @@ inclusion: always
   lib/
     crypto.js                PBKDF2 + AES-GCM helpers (WebCrypto only)
     store.js                 localStorage + Supabase sync, offline queue
-    geo.js                   distance/time estimates, bounds fitting
+    geo.js                   coordinates, distances, bounds fitting
+    dates.js                 calendar-date + duration helpers (no timezone math)
   data/
     itinerary.json           public data — see data-model.md
     secrets.enc.json         encrypted booking references (committed, ciphertext only)

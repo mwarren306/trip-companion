@@ -20,6 +20,36 @@ requirements are written; generate design and tasks from them.
 `node tools/validate-data.mjs` after any regeneration. Every transport leg carries a `verified`
 date and `source` — see `data-model.md`. If it isn't verified, it isn't in the data.
 
+## Development
+
+No build step. Serve the folder over a static server so ES modules and `fetch` work, for example:
+
+```
+python3 -m http.server 8000
+```
+
+then open `http://localhost:8000/`.
+
+### Previewing a different date
+
+Date-based routing (which view opens, days-until-start) reads `ctx.today` from the device clock.
+For local preview only, append `?today=YYYY-MM-DD` to force that date:
+
+- `http://localhost:8000/?today=2026-09-10` — before the trip: opens the To-sort view.
+- `http://localhost:8000/?today=2026-09-17` — Thursday 17 September: opens the Days view on that day.
+
+The override is a dev convenience; it is ignored when the value is missing or malformed, and there
+is no UI for it. Tests cover routing directly (`node --test`).
+
+## Tests
+
+```
+node --test
+```
+
+Pure logic (date routing, coordinate helpers) runs under Node's built-in test runner. No
+dependencies, no build.
+
 ## Acceptance before it's "done"
 
 Every spec has an acceptance section. The one that decides whether this works in Italy: install to

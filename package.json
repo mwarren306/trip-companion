@@ -1,0 +1,9 @@
+{
+  "name": "italy-2026",
+  "private": true,
+  "type": "module",
+  "description": "Private trip companion PWA. No build step for the app; this file declares ES module type and the test entry point only.",
+  "scripts": {
+    "test": "node --test"
+  }
+}
