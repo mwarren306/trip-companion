@@ -159,6 +159,8 @@ function render(ctx, viewName, dayN, opts) {
  * @param {HTMLElement} el the view container
  * @param {string} stopId
  */
+const HIGHLIGHT_MS = 2000;
+
 function focusStop(el, stopId) {
   const card = el.querySelector(`.stop[data-id="${cssEscapeAttr(stopId)}"]`);
   if (!card) return;
@@ -167,11 +169,12 @@ function focusStop(el, stopId) {
   // Force reflow so re-adding the class re-triggers the animation.
   void card.offsetWidth;
   card.classList.add("is-highlighted");
-  card.addEventListener(
-    "animationend",
-    () => card.classList.remove("is-highlighted"),
-    { once: true },
-  );
+  // Remove on a fixed timer so it works both ways: with motion the flash plays
+  // once (shorter than this), and under prefers-reduced-motion the held 2px
+  // --go outline is shown for HIGHLIGHT_MS then removed (no animation event to
+  // rely on there). Clear any prior timer so repeated taps don't stack.
+  clearTimeout(card._highlightTimer);
+  card._highlightTimer = setTimeout(() => card.classList.remove("is-highlighted"), HIGHLIGHT_MS);
 }
 
 /** Escape a value for use in a CSS attribute selector. */

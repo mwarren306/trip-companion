@@ -352,7 +352,8 @@ main {
 
 /* Brief highlight when a stop is focused from a To-sort link (req 6.9) or, later,
    a map pin tap (spec 03). A short go-tint flash on the card; the shared
-   "focus a stop" affordance. Disabled under prefers-reduced-motion (below). */
+   "focus a stop" affordance. JS removes the class after 2s. Under
+   prefers-reduced-motion the flash is replaced by a held outline (below). */
 .stop.is-highlighted .stop-card {
   animation: stop-highlight 1600ms ease-out;
 }
@@ -360,6 +361,16 @@ main {
 @keyframes stop-highlight {
   0%   { background: var(--go-tint); border-color: var(--go); }
   100% { background: var(--card); border-color: var(--line); }
+}
+
+/* Reduced motion: no flash. Same trigger, but hold a 2px --go outline for the
+   two seconds the class is applied (JS removes it), then it's gone. */
+@media (prefers-reduced-motion: reduce) {
+  .stop.is-highlighted .stop-card {
+    animation: none;
+    outline: 2px solid var(--go);
+    outline-offset: 2px;
+  }
 }
 
 /* Stop conditional content ------------------------------------------------ */
