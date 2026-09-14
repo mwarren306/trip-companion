@@ -2,7 +2,7 @@
  "trip": "Rome to Venice",
  "start": "2026-09-16",
  "end": "2026-09-25",
- "generated": "2026-09-13",
+ "generated": "2026-09-14",
  "trailStatusFallback": {
   "checked": "2026-09-13",
   "text": "Park alert 27 Aug: nessuna allerta. 591 open, free. 592-4 Monterosso–Vernazza open with a partial closure at Via Servano — enter from Via Corone (Ordinanza 77, 24 Aug). 592-3 Vernazza–Corniglia open. 592-2 Manarola–Corniglia closed indefinitely."
@@ -2362,9 +2362,9 @@
      "lo": 12.3330828,
      "cat": "food",
      "status": "plain",
-     "note": "Cannaregio. Vino Vero at 2497 — natural wine, open to midnight, they'll politely refuse to make an Aperol spritz. Al Timon on Fondamenta dei Ormesini — steaks and boat seating, open from 16:00 Thursday. Stand at the counter, order by pointing; pieces €1.50–4, an ombra about €1.50.",
+     "note": "Cannaregio. Vino Vero at 2497 — natural wine, open to midnight, they'll politely refuse to make an Aperol spritz. Al Timon on Fondamenta dei Ormesini — steaks and boat seating, open from 16:00 Thursday. Paradiso Perduto at 2540 — cicchetti and oysters at the bar, seafood plates and often live jazz if you want a canal-side table; open Thursday from 17:00. Stand at the counter, order by pointing; pieces €1.50–4, an ombra about €1.50.",
      "directions": "w",
-     "alert": "Cà d'Oro alla Vedova, listed in the plan for the €2 meatballs, is closed Thursdays. Drop it from tonight."
+     "alert": "Alla Vedova, the famous meatball bacaro, is closed Thursdays — that's why it isn't on this list."
     },
     {
      "kind": "leg",
@@ -2523,12 +2523,6 @@
    "label": "Confirm Opera del Duomo Museum Monday hours",
    "note": "Plan says 19:00; Google says 18:00. If 18:00, go straight there from the dome.",
    "due": "2026-09-20"
-  },
-  {
-   "id": "t4",
-   "label": "Fix the Thursday cicchetti crawl",
-   "note": "Cà d'Oro alla Vedova is closed Thursdays. Vino Vero and Al Timon are open.",
-   "due": "2026-09-23"
   },
   {
    "id": "t5",

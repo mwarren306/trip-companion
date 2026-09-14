@@ -35,7 +35,7 @@ PATTERNS=(
   'wifi5terre'
   'TRIP_PASSPHRASE='
   'service_role'
-  '\b[A-Z0-9]{6}\b.*(coach|carrozza|seat)'            # 6-char token on a line with coach/carrozza/seat
+  '\b[A-Z0-9]{6}\b.*\b(coach|carrozza|seat)\b'        # 6-char token on a line with the WORD coach/carrozza/seat (\b avoids "seating" etc.)
 )
 
 # Merge in local literal-value patterns if present (one regex per line, blanks/comments ignored).
