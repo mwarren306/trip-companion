@@ -14,11 +14,16 @@ set -euo pipefail
 #   tools/precommit-secret-scan.sh — this script, contains the shape patterns
 #   tools/secret-patterns.local    — gitignored literal values, never committed
 #   .kiro/steering/*.md            — steering docs that describe the patterns and schema
+#   .kiro/specs/**/*.md            — spec docs that describe the same patterns and schema
+#                                    (design/requirements prose like "PNRs, ticket codes, seats");
+#                                    they never carry a live reference — those live only in
+#                                    secrets.json (gitignored) and ship as ciphertext.
 EXCLUDES=(
   ':(exclude)data/secrets.enc.json'
   ':(exclude)tools/precommit-secret-scan.sh'
   ':(exclude)tools/secret-patterns.local'
   ':(exclude).kiro/steering/*.md'
+  ':(exclude).kiro/specs/**/*.md'
 )
 
 PATTERNS=(

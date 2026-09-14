@@ -31,4 +31,6 @@ unless "Remember" is on.
 ## Acceptance
 - `git ls-files` contains no `secrets.json`; `git log -p` contains no known reference string.
 - Wrong passphrase: readable error, no stack trace, no network call.
-- Right passphrase: Termini leg reveals the PNR and seats; refresh without "Remember" re-locks.
+- Right passphrase: the Borghese stop (4b) reveals the TicketOne order; refresh without "Remember"
+  re-locks. (The Termini-leg reveal moved to spec 02, which owns the expanded leg where a leg's lock
+  affordance lives; spec 05 ships complete on the stop-card path plus the unlock mechanism.)

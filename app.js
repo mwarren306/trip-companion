@@ -9,6 +9,7 @@ import { mount as mountTracker } from "./views/tracker.js";
 import { isoDate, daysUntil } from "./lib/dates.js";
 import * as geo from "./lib/geo.js";
 import { createStore } from "./lib/store.js";
+import { createSecrets, installBackgroundRelock } from "./views/lock.js";
 
 const VIEWS = {
   days: mountDays,
@@ -120,6 +121,7 @@ function buildContext(data, today) {
     daysUntilStart: null, // set by routing when today is before the trip
     geo, // lib/geo.js — mapsUrl, coordString, copyCoords
     store: createStore(), // lib/store.js — checkmark persistence (local; Supabase sync is spec 06)
+    secrets: createSecrets(), // views/lock.js — encrypted booking references (spec 05)
     navigate(viewName, dayN) {
       render(ctx, viewName, dayN);
     },
@@ -180,6 +182,13 @@ async function boot() {
 
   const today = resolveToday();
   const ctx = buildContext(data, today);
+
+  // Secure bookings (spec 05): install the background re-lock and try a
+  // remembered key. Both are best-effort and must not block or fail boot — the
+  // shell renders whether or not any secret can be unlocked.
+  installBackgroundRelock(ctx.secrets);
+  ctx.secrets.useRemembered().catch(() => {});
+
   const { view, dayN, daysUntilStart } = route(data, today);
   ctx.daysUntilStart = daysUntilStart;
   render(ctx, view, dayN);

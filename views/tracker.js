@@ -31,6 +31,11 @@ export function mount(el, ctx) {
     el.append(days);
   }
 
+  // Forget on this phone (spec 05, req 2.4) — shown only when a derived key is
+  // remembered on this device. Placed before the empty-state return so it
+  // appears regardless of whether there is anything to sort.
+  if (ctx.secrets) renderForget(el, ctx);
+
   // Empty state (6.7).
   if (todos.length === 0) {
     const empty = document.createElement("p");
@@ -124,4 +129,34 @@ function renderRow(todo, ctx) {
   });
 
   return { li, todo, sync };
+}
+
+/**
+ * "Forget on this phone" — removes the remembered booking key (spec 05, req
+ * 2.4). Shown only while a key is remembered; hidden otherwise. Subscribes to
+ * ctx.secrets so it appears/disappears live when a key is remembered or the
+ * user forgets it, and cleans up on view teardown.
+ */
+function renderForget(el, ctx) {
+  const wrap = document.createElement("div");
+  wrap.className = "forget-key";
+  el.append(wrap);
+
+  const render = () => {
+    wrap.replaceChildren();
+    if (!ctx.secrets.isRemembered()) return;
+    const line = document.createElement("p");
+    line.className = "forget-line";
+    line.textContent = "A booking passphrase is remembered on this phone.";
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "forget-btn";
+    btn.textContent = "Forget on this phone";
+    btn.addEventListener("click", () => ctx.secrets.forget());
+    wrap.append(line, btn);
+  };
+
+  const unsub = ctx.secrets.subscribe(render);
+  el.addEventListener("view:unmount", unsub, { once: true });
+  render();
 }

@@ -36,7 +36,13 @@ class El {
   get href() { return this.attrs.href; }
   set target(v) { this.attrs.target = v; }
   set rel(v) { this.attrs.rel = v; }
-  set type(v) { this.attrs.type = v; }
+  // Form-control properties behave as real readable/writable properties.
+  set type(v) { this._type = v; }
+  get type() { return this._type; }
+  set value(v) { this._value = v; }
+  get value() { return this._value ?? ""; }
+  set checked(v) { this._checked = !!v; }
+  get checked() { return !!this._checked; }
 
   append(...kids) { for (const k of kids) this.children.push(k); }
   replaceChildren(...kids) { this.children = [...kids]; }
@@ -44,10 +50,17 @@ class El {
   addEventListener(type, fn, opts) { (this._listeners[type] ??= []).push({ fn, once: !!(opts && opts.once) }); }
   dispatchEvent(evt) {
     const ls = this._listeners[evt.type] || [];
-    this._listeners[evt.type] = ls.filter((l) => { l.fn(evt); return !l.once; });
+    const results = [];
+    this._listeners[evt.type] = ls.filter((l) => { results.push(l.fn(evt)); return !l.once; });
+    // Expose the (possibly async) listener results so tests can await them.
+    this._lastDispatch = Promise.all(results.map((r) => Promise.resolve(r)));
     return true;
   }
-  click() { this.dispatchEvent({ type: "click" }); }
+  click() { this.dispatchEvent({ type: "click" }); return this._lastDispatch; }
+  // Fire a submit event with a working preventDefault (forms use it). Returns a
+  // promise that settles when async submit handlers finish.
+  submit() { this.dispatchEvent({ type: "submit", preventDefault() {} }); return this._lastDispatch; }
+  focus() { this._focused = true; }
   scrollIntoView() {}
 
   // Layout stubs — no geometry in the shim.

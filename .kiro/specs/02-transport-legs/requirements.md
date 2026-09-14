@@ -38,5 +38,8 @@ what-not-to-take), Florence bus 12/13, vaporetto line 1, ACTV Aerobus line 5, pr
 ## Acceptance
 - Saturday 19 Sep: Termini leg expands to show FB 8620, 13:57→17:44, the platform rule, and the
   locked PNR; La Spezia leg shows the regional-to-Levanto instruction and the shuttle WhatsApp step.
+- Right passphrase in the expanded Termini leg reveals the PNR and seats; refresh without "Remember"
+  re-locks. (Moved from spec 05: the leg lock affordance lives in the expanded leg, which this spec
+  owns; spec 05 owns the unlock mechanism and the stop-card affordance.)
 - Friday 25 Sep: two legs — vaporetto to Piazzale Roma, Aerobus to VCE — each with fare and where to buy.
 - No leg in the data fails validation.

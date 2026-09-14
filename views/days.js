@@ -9,6 +9,7 @@
 
 import { isoDate, sumMoveTime } from "../lib/dates.js";
 import { categoryIcon, modeIcon } from "./icons.js";
+import { renderLockAffordance } from "./lock.js";
 
 /** Categories the design system defines a tint/fill token for. */
 const KNOWN_CATS = new Set(["sight", "food", "stay", "move", "open"]);
@@ -265,6 +266,12 @@ function renderStop(stop, n, ctx, updateProgress) {
     alert.setAttribute("role", "note");
     alert.textContent = stop.alert;
     card.append(alert);
+  }
+
+  // Lock affordance (spec 05) — between the alert and the actions row, per the
+  // design-system card order. Only when this stop carries a booking reference.
+  if (stop.hasSecret) {
+    card.append(renderLockAffordance(stop, ctx));
   }
 
   // Actions row (req 4.6, task 10). Check-off (task 11) attaches to this card.

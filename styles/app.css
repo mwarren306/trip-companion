@@ -633,6 +633,153 @@ main {
   display: none;
 }
 
+/* ------------------------------------------------ secure bookings (spec 05) */
+
+/* Lock affordance — sits between the alert and the actions row on a stop card.
+   Locked: dashed box, dim label, right-aligned jade Unlock (design-system.md). */
+.lock {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border: 1px dashed var(--line-2);
+  border-radius: 11px;
+}
+
+.lock[data-state="locked"] {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+}
+
+.lock-label {
+  flex: 1 1 auto;
+  font-size: 13px;
+  color: var(--dim);
+}
+
+.lock-unlock {
+  flex: 0 0 auto;
+  min-height: 36px;
+  padding: 6px 12px;
+  border: 0;
+  background: none;
+  color: var(--go);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Prompting: inline passphrase form (never window.prompt). */
+.lock-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lock-field {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-ctrl);
+  background: var(--card);
+  color: var(--ink);
+  font: inherit;
+}
+
+.lock-remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--mid);
+}
+
+.lock-error {
+  margin: 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: var(--warn-bg);
+  color: var(--warn);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.lock-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Revealed: the reference as selectable text + a Copy action. */
+.lock[data-state="revealed"] {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-style: solid;
+  border-color: var(--line);
+}
+
+.lock-value {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--ink);
+  word-break: break-word;
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+.lock-copy {
+  flex: 0 0 auto;
+  min-height: 36px;
+  padding: 6px 12px;
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-ctrl);
+  background: var(--card);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.lock-none {
+  margin: 0;
+  font-size: 13px;
+  color: var(--dim);
+}
+
+/* Forget on this phone — in the To-sort view when a key is remembered. */
+.forget-key:empty {
+  display: none;
+}
+
+.forget-key {
+  margin: 12px 0 0;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  background: var(--card);
+}
+
+.forget-line {
+  margin: 0 0 6px;
+  font-size: 13px;
+  color: var(--mid);
+}
+
+.forget-btn {
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-ctrl);
+  background: var(--card);
+  color: var(--go);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 /* --------------------------------------------------------------- motion */
 
 @media (prefers-reduced-motion: reduce) {
