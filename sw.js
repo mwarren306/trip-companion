@@ -10,7 +10,7 @@
 // Pure helpers (cacheName, classifyRequest, activate cleanup) are exported so
 // they can be unit-tested in Node; the SW event wiring only runs in a worker.
 
-const VERSION = "v3"; // bump on every deploy (app-code cache key)
+const VERSION = "v4"; // bump on every deploy (app-code cache key)
 const CACHE = `trip-${VERSION}`;
 
 // Precache list (req 1.1). CORE must all cache or install fails; OPTIONAL is
