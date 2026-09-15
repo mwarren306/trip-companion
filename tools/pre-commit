@@ -1,1 +1,12 @@
-precommit-secret-scan.sh
+#!/usr/bin/env bash
+# Pre-commit dispatcher. Runs every check; any failure blocks the commit.
+# Install: git config core.hooksPath tools/
+set -euo pipefail
+
+here="$(cd "$(dirname "$0")" && pwd)"
+
+# 1. No booking references / secrets in the staged diff.
+bash "$here/precommit-secret-scan.sh"
+
+# 2. App-code change requires a service-worker VERSION bump.
+bash "$here/precommit-version-check.sh"
