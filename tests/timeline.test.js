@@ -138,3 +138,35 @@ test("view:unmount unsubscribes the Days view so a torn-down view stops updating
   ctx.store.toggle("2a");
   assert.equal(dom.dayHeader.querySelector(".progress").textContent, before, "old view no longer updates after unmount");
 });
+
+// --- req 2.4: opening Days before the trip selects the first day, all chips --
+
+// A ten-day fixture (dates only) to exercise chip rendering and default day.
+const tenDays = () => ({
+  trip: "Test", start: "2026-09-16", end: "2026-09-25", generated: "2026-09-14",
+  days: Array.from({ length: 10 }, (_, i) => ({
+    n: i + 1,
+    iso: `2026-09-${16 + i}`,
+    date: `Day ${16 + i}`,
+    title: `Day ${i + 1}`,
+    place: "Somewhere",
+    items: [{ kind: "stop", id: `${i + 1}a`, t: "09:00", name: `Stop ${i + 1}`, la: 41, lo: 12, cat: "sight", directions: "w" }],
+  })),
+  todo: [],
+});
+
+test("opening Days before the trip selects Wed 16 Sep (day 1) with all ten chips (req 2.4)", () => {
+  // Before the trip, navigate('days') sets no dayN, so selectedDayN is null and
+  // the view defaults to the first day; today is before start.
+  mount(dom.view, {
+    data: tenDays(), today: new Date(2026, 8, 10), selectedDayN: null,
+    geo, store: createStore(), navigate() {},
+  });
+
+  const chips = dom.dayNav.querySelectorAll(".chip");
+  assert.equal(chips.length, 10, "all ten day chips are available");
+  // (the DOM shim's querySelector takes a single class, so filter by classList)
+  const selected = chips.filter((c) => c.classList.has("is-selected"));
+  assert.equal(selected.length, 1, "exactly one chip is selected");
+  assert.equal(selected[0].textContent.includes("Day 16"), true, "the first day (Wed 16 Sep) is selected");
+});

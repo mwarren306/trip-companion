@@ -56,11 +56,46 @@ button {
 /* --------------------------------------------------------------- layout */
 
 /* Page column: max 600px, centred; full width on phones. */
+#tabs,
 header,
 main {
   width: 100%;
   max-width: 600px;
   margin-inline: auto;
+}
+
+/* ------------------------------------------------------- view tabs (req 2.4) */
+
+/* Persistent two-tab bar above the content, sticky at the very top. Lives
+   outside #view so it survives view swaps; the day chips stick just below it. */
+.tabs {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  gap: 4px;
+  padding: 8px 16px;
+  background: var(--page);
+  border-bottom: 1px solid var(--line);
+}
+
+.tab {
+  flex: 1 1 0;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-pill);
+  background: var(--card);
+  color: var(--mid);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tab.is-active {
+  background: var(--go);
+  border-color: var(--go);
+  color: #fff;
 }
 
 main {
@@ -71,7 +106,7 @@ main {
 
 #day-nav {
   position: sticky;
-  top: 0;
+  top: 61px; /* sits just below the sticky .tabs bar (req 2.4) */
   z-index: 10;
   background: var(--page);
   border-bottom: 1px solid var(--line);

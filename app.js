@@ -148,9 +148,41 @@ function render(ctx, viewName, dayN, opts) {
   ctx.selectedDayN = dayN ?? ctx.selectedDayN;
   const mount = VIEWS[viewName];
   mount(el, ctx);
+  setActiveTab(viewName); // reflect which view is showing in the tab bar (req 2.4)
   // Optionally scroll to and briefly highlight a stop after the view mounts
   // (used by a To-sort item's stop link, req 6.9; reused by the map pin, 03).
   if (opts && opts.focusStopId) focusStop(el, opts.focusStopId);
+}
+
+/**
+ * Mark the active view in the persistent two-tab bar (req 2.4). aria-current
+ * carries the state for assistive tech; the class drives the visual.
+ * @param {string} viewName "days" | "tracker"
+ */
+function setActiveTab(viewName) {
+  const tabs = document.getElementById("tabs");
+  if (!tabs) return;
+  for (const tab of tabs.querySelectorAll(".tab")) {
+    const active = tab.dataset.view === viewName;
+    tab.classList.toggle("is-active", active);
+    if (active) tab.setAttribute("aria-current", "page");
+    else tab.removeAttribute("aria-current");
+  }
+}
+
+/**
+ * Wire the persistent tab bar once at boot. "Days" opens the Days view (keeping
+ * the current selected day, or the first day when none is set — so before the
+ * trip it lands on Wed 16 Sep with all chips, req 2.4). "To sort" opens the
+ * tracker. The bar itself lives outside #view, so it survives view swaps.
+ * @param {object} ctx
+ */
+function wireTabs(ctx) {
+  const tabs = document.getElementById("tabs");
+  if (!tabs) return;
+  for (const tab of tabs.querySelectorAll(".tab")) {
+    tab.addEventListener("click", () => ctx.navigate(tab.dataset.view));
+  }
 }
 
 /**
@@ -227,6 +259,8 @@ async function boot() {
   // shell renders whether or not any secret can be unlocked.
   installBackgroundRelock(ctx.secrets);
   ctx.secrets.useRemembered().catch(() => {});
+
+  wireTabs(ctx); // persistent Days / To sort tabs (req 2.4)
 
   const { view, dayN, daysUntilStart } = route(data, today);
   ctx.daysUntilStart = daysUntilStart;

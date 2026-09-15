@@ -24,6 +24,10 @@ number of days until `start`.
 2.1 THE SYSTEM SHALL render one chip per day in a horizontal scroll, sticky at the top.
 2.2 WHEN a chip is tapped THE SYSTEM SHALL render that day and scroll the chip into view.
 2.3 THE SYSTEM SHALL mark today's chip distinctly from the selected chip when they differ.
+2.4 THE SYSTEM SHALL show a persistent two-tab bar ("Days" and "To sort") above the content so
+either view is reachable on any date, marking the active tab. The opening tab still follows the
+date (To sort before the trip, Days during and after it, per 1.2–1.4). WHEN "Days" is opened before
+the trip THE SYSTEM SHALL select Wed 16 Sep (the first day) with all ten day chips available.
 
 ### 3. Day header
 3.1 THE SYSTEM SHALL show `Day n of N — place`, the day title, and three facts: number of stops,
