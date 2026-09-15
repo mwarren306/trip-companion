@@ -2,7 +2,7 @@
  "trip": "Rome to Venice",
  "start": "2026-09-16",
  "end": "2026-09-25",
- "generated": "2026-09-14",
+ "generated": "2026-09-15",
  "trailStatusFallback": {
   "checked": "2026-09-13",
   "text": "Park alert 27 Aug: nessuna allerta. 591 open, free. 592-4 Monterosso–Vernazza open with a partial closure at Via Servano — enter from Via Corone (Ordinanza 77, 24 Aug). 592-3 Vernazza–Corniglia open. 592-2 Manarola–Corniglia closed indefinitely."
@@ -24,7 +24,7 @@
      "lo": 12.2519211,
      "cat": "move",
      "status": "set",
-     "note": "UA 8802 lands from Frankfurt. Carry-on only, so no baggage hall — follow signs for Uscita / Exit and Taxi at Terminal 3 arrivals. Do not accept a ride from anyone approaching you inside the terminal.",
+     "note": "UA 8802 lands from Frankfurt. Carry-on only, so no baggage hall. Before the taxi: withdraw about €300 at a bank ATM in arrivals — Intesa Sanpaolo, UniCredit or BNL — not a blue-and-yellow Euronet machine and not an exchange counter. When it offers to charge in dollars, decline and choose euros. One withdrawal, and ask for mixed notes. Then follow signs for Uscita / Exit and Taxi at Terminal 3. Do not accept a ride from anyone approaching you inside the terminal.",
      "directions": "r",
      "hasSecret": true
     },
@@ -542,7 +542,7 @@
      "lo": 12.4536413,
      "cat": "sight",
      "status": "set",
-     "note": "Private guide, 14:00–16:30, €412 for two including museum tickets, deposit paid. Meet at the Viale Vaticano entrance at 13:30. She supplies the tickets — buy nothing at tickets.museivaticani.va. Shoulders and knees covered, hats off inside. No photos at all in the Sistine.",
+     "note": "Private guide, 14:00–16:30, €412 for two including museum tickets, deposit paid. Bring €170 in cash for her balance — she asked for cash. Meet at the Viale Vaticano entrance at 13:30. She supplies the tickets — buy nothing at tickets.museivaticani.va. Shoulders and knees covered, hats off inside. No photos at all in the Sistine.",
      "directions": "w",
      "window": {
       "from": "13:30",
@@ -2329,7 +2329,7 @@
      "lo": 12.3262,
      "cat": "sight",
      "status": "set",
-     "note": "The plan, not optional. €90 for 30 minutes at the daytime rate. Your Dorsoduro stands feed into the quiet Rio di San Trovaso — insist on the back canals, not the Grand Canal. Agree route and price before boarding.",
+     "note": "The plan, not optional. €90 for 30 minutes at the daytime rate — carry it in cash, many gondoliers still won't take a card. Your Dorsoduro stands feed into the quiet Rio di San Trovaso — insist on the back canals, not the Grand Canal. Agree route and price before boarding.",
      "directions": "w",
      "alert": "Daytime pricing ends at 19:00 — after that it's €110 for 35 minutes. Be stepping in by 18:15–18:30, not still walking to a stand."
     },
@@ -2530,12 +2530,21 @@
    "stop": "6c"
   },
   {
+   "id": "t11",
+   "label": "Withdraw about €300 at Fiumicino",
+   "note": "Bank ATM in arrivals (Intesa Sanpaolo, UniCredit, BNL), not Euronet, not an exchange counter. Choose euros when it offers dollars. What it covers: €170 for the Vatican guide's balance Friday, about €60 of cash-only stops (Schiavi, Alberto gelato, San Rocco, traghetto, Doria tower, market stalls), €30 of coffee, tips and bakeries. Everything else takes cards.",
+   "due": "2026-09-16",
+   "when": "Wed 16 Sep",
+   "where": "Fiumicino arrivals",
+   "stop": "1a"
+  },
+  {
    "id": "t10",
-   "label": "Cash for Venice",
-   "note": "Hotel tourist tax (~€16–18), San Rocco (€12 each, cash only), Schiavi. Italy is card-friendly but these aren't.",
+   "label": "Top up cash once before Venice",
+   "note": "One bank ATM stop in Florence or Venice. Covers the hotel tourist tax (~€16–18, cash at checkout), San Rocco (€12 each, cash only), Schiavi, and €90 for the gondola if the gondolier won't take a card. Same rules: bank ATM, euros not dollars, one withdrawal.",
    "due": "2026-09-22",
-   "when": "Wed 23 – Fri 25 Sep",
-   "where": "Venice",
+   "when": "Mon 21 – Wed 23 Sep",
+   "where": "Florence or Venice",
    "stop": "8d"
   }
  ]
